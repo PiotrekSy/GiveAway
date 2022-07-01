@@ -2,14 +2,18 @@ import React from "react";
 import './scss/main.scss';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from "./components/Home"
-import TestElement from "./components/TestElement"
+import Login from "./components/Login";
+import Register from "./components/Register";
+
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="testelement" element={<TestElement/>}/>
+                <Route path="/Login" element={<Login/>}/>
+                <Route path="/Register" element={<Register/>}/>
+
             </Routes>
         </Router>
     );

@@ -1,25 +1,20 @@
 import {Link} from "react-router-dom";
-import React from "@types/react";
-import Login from "./Login";
-import Registration from "./Registration";
+import React from "react";
 
 const RegistrationSection = () => {
     return (
         <div className="registrationSection">
             <div className="loggedUser">
+                Placeholder na nazwę użytkownika przed loginem i rejestracją
                 {/*TODO wyświetlanie nazwy użytkownika*/}
                 {/*<p>{userName}</p>*/}
             </div>
-            <div className="loginButton">
-                <Link to='/Registration'>
-                    <div className='iconBack'/>
-                </Link>
-            </div>
-            <div className="registerButton">
-                <Link to='/Registration'>
-                    <div className='iconBack'/>
-                </Link>
-            </div>
+            <button className="loginButton">
+                <Link to='/Login'>Log in</Link>
+            </button>
+            <button className="registerButton">
+                <Link to='/Register'>Register</Link>
+            </button>
         </div>
     )
 }

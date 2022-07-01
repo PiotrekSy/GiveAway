@@ -1,16 +1,19 @@
 import React from "react";
-import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
-import Navbar from "Navbar";
-import RegistrationSection from "./RegistrationSection";
-
+import WhatsUp from "./WhatsUp";
+import About from "./About"
+import Organizations from "./Organizations"
+import Contact from "./Contact"
+import HomeHeader from "./HomeHeader";
 
 const Home = () => {
     return (
-        <>
-            <RegistrationSection/>
-            <Navbar/>
-        </>
-
+        <div className="">
+            <HomeHeader/>
+            <WhatsUp/>
+            <About/>
+            <Organizations/>
+            <Contact/>
+        </div>
     )
 }
 
