@@ -26,13 +26,14 @@ const Contact = () => {
                                Aliquam consequatur esse facere iste laboriosam praesentium ut vitae. Id!"/>
                         </label>
                     </div>
+                    <button type="submit">Wyślij</button>
                 </form>
                 <p></p>
             </div>
             <div className="footer">
                 <span>Copyright by Coders Lab</span>
                 <div>FB ICON</div>
-                <div>INSTA ICON</div>
+                <div>INSTAGRAM ICON</div>
             </div>
         </div>
     )
