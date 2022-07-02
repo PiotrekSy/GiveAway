@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import db from "./firebase";
-import PaginationDigits from "./PaginationDigits"
+import PaginationDigits from "./PaginationDigits";
 import {collection, onSnapshot} from "@firebase/firestore";
-
 
 const Organizations = () => {
     //przełączanie między typami wspartych jednostek i samo ładowanie ich z servera firebase
@@ -11,23 +10,19 @@ const Organizations = () => {
     const [organisationsList, setOrganisationsList] = useState([{name: "LOADING.....", id: "loader"}])
     const [localList, setLocalList] = useState([{name: "LOADING.....", id: "loader"}])
 
+//zaciąganie wszystkich danych elementów z firebase
     useEffect(() => {
         onSnapshot(collection(db, "fundations"), (snapshot) => {
             setFundationsList(snapshot.docs.map(doc => doc.data()))
         })
-    }, [])
-
-    useEffect(() => {
         onSnapshot(collection(db, "organizations"), (snapshot) => {
             setOrganisationsList(snapshot.docs.map(doc => doc.data()))
         })
-    }, [])
-
-    useEffect(() => {
         onSnapshot(collection(db, "local"), (snapshot) => {
             setLocalList(snapshot.docs.map(doc => doc.data()))
         })
     }, [])
+
 
     //paginacja dla sekcji organizations:
     const [currentPage, setCurrentPage] = useState(1)
@@ -114,6 +109,7 @@ const Organizations = () => {
 }
 
 export default Organizations
+
 
 // {foundationsPage === "firstPage" &&
 // <div>

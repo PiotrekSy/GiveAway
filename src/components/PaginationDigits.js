@@ -10,11 +10,11 @@ const Pagination = ({elementsPerPage, totalElements, paginate}) => {
 
     return (
         <div>
-            <ul className="pagination">
-                {paginationDigits.map(number => <li key={number}>
+            <div className="pagination">
+                {paginationDigits.map(number => <div key={number}>
                     <div onClick={() => paginate(number)}>{number}</div>
-                </li>)}
-            </ul>
+                </div>)}
+            </div>
         </div>)
 }
 
