@@ -3,15 +3,19 @@
 
 //normalize:
 html {
+  list-style: none;
+  text-decoration: none;
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   body {
     margin: 0;
     font-family: var(--font-base);
+    list-style: none;
   }
 
   main {
     display: block;
+    list-style: none;
   }
 
   h1 {

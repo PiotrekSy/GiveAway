@@ -1,32 +1,63 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
+import db from "./firebase";
+import PaginationDigits from "./PaginationDigits"
+import {collection, onSnapshot} from "@firebase/firestore";
+
 
 const Organizations = () => {
+    //przełączanie między typami wspartych jednostek i samo ładowanie ich z servera firebase
+    const [type, setType] = useState("fundations")
+    const [fundationsList, setFundationsList] = useState([{name: "LOADING.....", id: "loader"}])
+    const [organisationsList, setOrganisationsList] = useState([{name: "LOADING.....", id: "loader"}])
+    const [localList, setLocalList] = useState([{name: "LOADING.....", id: "loader"}])
 
-    //włączanie odpowiedniej sekcji
-    const [type, setType] = useState("foundations")
-    //paginacja dla sekcji organizations:
-    const [posts, setPosts] = useState([])
-    const [loading, setLoading] = useState(false)
-    const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage, setPostsPerPage] = useState(3)
-    //pobieranie elementów z servera firebase
     useEffect(() => {
+        onSnapshot(collection(db, "fundations"), (snapshot) => {
+            setFundationsList(snapshot.docs.map(doc => doc.data()))
+        })
+    }, [])
 
-    });
+    useEffect(() => {
+        onSnapshot(collection(db, "organizations"), (snapshot) => {
+            setOrganisationsList(snapshot.docs.map(doc => doc.data()))
+        })
+    }, [])
+
+    useEffect(() => {
+        onSnapshot(collection(db, "local"), (snapshot) => {
+            setLocalList(snapshot.docs.map(doc => doc.data()))
+        })
+    }, [])
+
+    //paginacja dla sekcji organizations:
+    const [currentPage, setCurrentPage] = useState(1)
+    const [elementsPerPage] = useState(3)
+    const lastElementOfList = currentPage * elementsPerPage
+    const firstElementOfList = lastElementOfList - elementsPerPage
+    // zmiana stron:
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
 
     return (<div className="">
         <span>Komu pomagamy?</span>
         <div>Ozdobnik</div>
         <div>
-            <button onClick={() => {
-                setType("foundations")
+            <button onClick={(e) => {
+                e.preventDefault()
+                setCurrentPage(1)
+                setType("fundations")
             }}>Fundacjom
             </button>
-            <button onClick={() => {
+            <button onClick={(e) => {
+                e.preventDefault()
+                setCurrentPage(1)
                 setType("nfo")
             }}>Organizacjom <br/> pozarządowym
             </button>
-            <button onClick={() => {
+            <button onClick={(e) => {
+                e.preventDefault()
+                setCurrentPage(1)
                 setType("local")
             }}>Lokalnym <br/> zbiórkom
             </button>
@@ -37,21 +68,52 @@ const Organizations = () => {
             suscipit tempora unde voluptatum.
         </span>
         <div className="listContainer">
-            {type === "foundations" && <div>
-                PLACEHOLDER POD WPISY 1
+            {type === "fundations" && <div>
+                {fundationsList.map(element =>
+                    <div key={element.name} className="listElement">
+                        <h1>{element.name}</h1>
+                        <span>{element.target}</span>
+                        <span>{element.requests}</span>
+                    </div>
+                ).slice(firstElementOfList, lastElementOfList)}
+                <PaginationDigits
+                    elementsPerPage={elementsPerPage}
+                    totalElements={fundationsList.length}
+                    paginate={paginate}/>
             </div>}
             {type === "nfo" && <div>
-                PLACEHOLDER POD WPISY 2
+                {organisationsList.map(element =>
+                    <div key={element.name} className="listElement">
+                        <h1>{element.name}</h1>
+                        <span>{element.target}</span>
+                        <span>{element.requests}</span>
+                    </div>
+                ).slice(firstElementOfList, lastElementOfList)}
+                <PaginationDigits
+                    elementsPerPage={elementsPerPage}
+                    totalElements={organisationsList.length}
+                    paginate={paginate}/>
             </div>}
             {type === "local" && <div>
-                PLACEHOLDER POD WPISY 3
+                {localList.map(element =>
+                    <div key={element.name} className="listElement">
+                        <h1>{element.name}</h1>
+                        <span>{element.target}</span>
+                        <span>{element.requests}</span>
+                    </div>
+                ).slice(firstElementOfList, lastElementOfList)}
+                {localList.length > elementsPerPage &&
+                    <PaginationDigits
+                        elementsPerPage={elementsPerPage}
+                        totalElements={localList.length}
+                        paginate={paginate}
+                    />}
             </div>}
         </div>
     </div>)
 }
 
 export default Organizations
-
 
 // {foundationsPage === "firstPage" &&
 // <div>
