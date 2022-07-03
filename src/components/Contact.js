@@ -2,13 +2,12 @@ import React from "react";
 
 const Contact = () => {
     return (
-        <div className="">
-            <div className="leftSide">
-                <div>
-                    PLACEHOLDER NA ZDJĘCIE W TLE
-                </div>
-            </div>
+        <div className="contact">
+            <div className="leftSide"/>
             <div className="rightSide">
+
+                <div className="contactTitle">Skontaktuj się z nami</div>
+                <div className="contactDecoration"/>
                 <form className="form">
                     <div className="upperLabels">
                         <label>Wpisz swoje imię
@@ -28,12 +27,21 @@ const Contact = () => {
                     </div>
                     <button type="submit">Wyślij</button>
                 </form>
+
                 <p></p>
             </div>
             <div className="footer">
-                <span>Copyright by Coders Lab</span>
-                <div>FB ICON</div>
-                <div>INSTAGRAM ICON</div>
+                <div className="footerCopyright">
+                    <div>
+                        Copyright by Coders Lab
+                    </div>
+                </div>
+                <div className="footerMediaWrapper">
+                    <div className="footerMedia">
+                        <div>FB ICON</div>
+                        <div>INSTAGRAM ICON</div>
+                    </div>
+                </div>
             </div>
         </div>
     )

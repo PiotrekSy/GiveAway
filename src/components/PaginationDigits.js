@@ -14,11 +14,14 @@ const Pagination = ({elementsPerPage, totalElements, paginate}) => {
     //elementów wyświetlanych w jednym bloku to element się nie wyrenderuje.
 
     return (
-        <div>
+        <div className="paginationContainer">
             <div className="pagination">
-                {paginationDigits.map(number => <div key={number}>
-                    <div onClick={() => paginate(number)}>{number}</div>
-                </div>)}
+                {paginationDigits.map(number =>
+                    <div key={number} className="paginationDigitArea">
+                        <div className="paginationDigit"
+                             onClick={() => paginate(number)}>{number}</div>
+                    </div>
+                )}
             </div>
         </div>)
 }

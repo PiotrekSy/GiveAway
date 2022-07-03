@@ -225,7 +225,6 @@ $baseHeight: 100vh;
       height: 100%;
 
       .authSection {
-        flex-wrap: nowrap;
         width: 50vw;
         top: 2%;
         position: absolute;
@@ -240,7 +239,6 @@ $baseHeight: 100vh;
           width: 25%;
           justify-content: right;
           height: 50px;
-          text-wrap: none;
 
           .authUserWrapper {
             display: flex;
@@ -351,6 +349,7 @@ $baseHeight: 100vh;
         }
 
         .baseButtons {
+
           position: relative;
           display: flex;
           flex-direction: row;
@@ -366,6 +365,7 @@ $baseHeight: 100vh;
             margin: 40px;
 
             .mainPageButtonRange {
+              cursor: pointer;
               display: flex;
               text-align: center;
               align-self: center;
@@ -376,7 +376,8 @@ $baseHeight: 100vh;
 
               .mainButtonText {
                 position: relative;
-                font-size: 2.3rem;
+                padding: 5px;
+                font-size: 2rem;
                 color: black;
                 margin: auto;
               }
@@ -443,40 +444,71 @@ $baseHeight: 100vh;
     .simpleStepsItems {
       width: 100%;
       height: 40%;
-      background-color: var(--colour-light-grey);
+      background: var(--colour-light-grey) 0 0 no-repeat padding-box;;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
 
-      .simpleIcon {
+      .simpleIcon1 {
+        display: block;
         text-align: center;
-        margin: 15px;
+        height: 90px;
+        width: 90px;
+        background: url("../../assets/Icon-1.svg") center no-repeat;
       }
 
-      .simpleStepsItem {
+      .simpleIcon2 {
+        display: block;
+        text-align: center;
+        height: 90px;
+        width: 90px;
+        background: url("../../assets/Icon-2.svg") center no-repeat;
+      }
+
+      .simpleIcon3 {
+        display: block;
+        text-align: center;
+        height: 90px;
+        width: 90px;
+        background: url("../../assets/Icon-3.svg") center no-repeat;
+      }
+
+      .simpleIcon4 {
+        display: block;
+        text-align: center;
+        height: 90px;
+        width: 90px;
+        background: url("../../assets/Icon-4.svg") center no-repeat;
+      }
+
+      .simpleStepItem {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
         height: 100%;
-        width: 15%;
-        display: flex;
-      }
+        width: 10vw;
 
-      .simpleCommand {
-        text-align: center;
-        margin: 15px;
-      }
+        .simpleCommand {
+          text-align: center;
+          margin: 5px;
+        }
 
-      .simpleLine {
-        text-align: center;
-        height: 1px;
-        width: 5vw;
-        background: black;
-        margin: 15px;
-      }
+        .simpleLine {
+          text-align: center;
+          height: 1px;
+          width: 5vw;
+          background: black;
+          margin: 5px;
+        }
 
-      .simpleDescription {
-        text-align: center;
-        margin: 15px;
+        .simpleDescription {
+          text-align: center;
+          margin: 5px;
+          width: 100%;
+        }
       }
     }
 
@@ -517,15 +549,268 @@ $baseHeight: 100vh;
   }
 
   .about {
+    width: 100%;
     height: $baseHeight;
+    display: flex;
+    flex-direction: row;
+
+    .rightSide {
+      width: 100vh;
+      background: url("../../assets/People.jpg");
+      background-size: cover;
+    }
+
+    .leftSide {
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .aboutTitle {
+        font-size: 35px;
+      }
+
+      .aboutDecoration {
+        width: 200px;
+        height: 25px;
+        background: url("../../assets/Decoration.svg") no-repeat center;
+        background-size: cover;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      .aboutDescription {
+        text-align: center;
+        width: 60%;
+        line-height: 3;
+        font-size: 22px;
+      }
+
+      .aboutSignature {
+        position: relative;
+        top: 30px;
+        align-self: end;
+        width: 209px;
+        height: 149px;
+        background: url("../../assets/Signature.svg") no-repeat;
+        background-size: cover;
+        margin-bottom: 40px;
+        margin-right: 18%;
+      }
+    }
   }
 
   .organizations {
     height: $baseHeight;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .organizationsTitle {
+      font-size: 35px;
+    }
+
+    .organizationsButtons {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding-top: 40px;
+
+      .organizationButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        width: 250px;
+        margin: 50px;
+
+        .organizationButtonRange {
+          display: flex;
+          text-align: center;
+          align-self: center;
+          justify-self: center;
+          position: relative;
+          height: 100%;
+          width: 100%;
+
+          .organizationButtonText {
+            position: relative;
+            font-size: 1.5rem;
+            color: black;
+            margin: auto;
+          }
+        }
+
+        .organizationButtonRange:hover {
+          border: 1px solid #2e2e31;
+        }
+      }
+    }
+
+    .organizationsContainer {
+
+      height: 30vh;
+      width: 70%;
+      font-size: 2rem;
+      padding: 50px;
+
+      .organizationsItems {
+        display: flex;
+        flex-direction: column;
+
+        .listElement {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-top: 1%;
+          margin-bottom: 1%;
+
+          .organizationMainData {
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+
+            .organizationName {
+              font-size: 1.8rem;
+              margin-bottom: 3%;
+            }
+
+            .organizationTarget {
+              font-size: 1.1rem;
+            }
+          }
+
+          .organizationRequest {
+            align-self: center;
+            text-align: end;
+            width: 50vw;
+            font-size: 1.1rem;
+          }
+        }
+
+        .paginationContainer {
+
+          font-size: 1.3rem;
+
+          .pagination {
+            position: relative;
+            height: 10%;
+            width: 100%;
+            padding: 1%;
+            align-self: end;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .paginationDigitArea {
+              cursor: pointer;
+              height: 60px;
+              width: 40px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 0 10px 0 10px;
+              border: 1px solid #fdfdfe;
+
+              .paginationDigit {
+                padding: 10px;
+
+              }
+            }
+
+            .paginationDigitArea:hover {
+              border: 1px solid black;
+            }
+          }
+        }
+      }
+    }
+
+    .organizationsDecoration {
+      width: 280px;
+      height: 35px;
+      background: url("../../assets/Decoration.svg") no-repeat center;
+      background-size: cover;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .organizationsDescription {
+      text-align: center;
+      width: 40%;
+      font-size: 22px;
+      line-height: 2;
+      margin-top: 2%;
+    }
+
+
   }
 
   .contact {
     height: $baseHeight;
+    display: flex;
+    flex-direction: row;
+
+    .leftSide {
+      width: 100vw;
+      background: url("../../assets/Background-Contact-Form.jpg");
+      background-size: cover;
+      opacity: 0.1;
+    }
+
+    .rightSide {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 40%;
+
+      .contactTitle {
+        font-size: 35px;
+      }
+
+      .contactDecoration {
+        width: 200px;
+        height: 25px;
+        background: url("../../assets/Decoration.svg") no-repeat center;
+        background-size: cover;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+    }
+
+    .footer {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      align-items: center;
+
+      .footerCopyright {
+        height: 100%;
+        width: 300px;
+        text-align: center;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-bottom: 2%;
+      }
+
+      .footerMediaWrapper {
+        position: absolute;
+
+        .footerMedia {
+          display: flex;
+          flex-direction: row;
+          position: relative;
+        }
+      }
+    }
   }
 
 }
