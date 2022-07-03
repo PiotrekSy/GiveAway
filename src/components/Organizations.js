@@ -23,7 +23,6 @@ const Organizations = () => {
         })
     }, [])
 
-
     //paginacja dla sekcji organizations:
     const [currentPage, setCurrentPage] = useState(1)
     const [elementsPerPage] = useState(3)
@@ -71,10 +70,12 @@ const Organizations = () => {
                         <span>{element.requests}</span>
                     </div>
                 ).slice(firstElementOfList, lastElementOfList)}
-                <PaginationDigits
-                    elementsPerPage={elementsPerPage}
-                    totalElements={fundationsList.length}
-                    paginate={paginate}/>
+                {fundationsList.length > elementsPerPage &&
+                    <PaginationDigits
+                        elementsPerPage={elementsPerPage}
+                        totalElements={fundationsList.length}
+                        paginate={paginate}
+                    />}
             </div>}
             {type === "nfo" && <div>
                 {organisationsList.map(element =>
@@ -84,10 +85,12 @@ const Organizations = () => {
                         <span>{element.requests}</span>
                     </div>
                 ).slice(firstElementOfList, lastElementOfList)}
-                <PaginationDigits
-                    elementsPerPage={elementsPerPage}
-                    totalElements={organisationsList.length}
-                    paginate={paginate}/>
+                {organisationsList.length > elementsPerPage &&
+                    <PaginationDigits
+                        elementsPerPage={elementsPerPage}
+                        totalElements={organisationsList.length}
+                        paginate={paginate}
+                    />}
             </div>}
             {type === "local" && <div>
                 {localList.map(element =>
@@ -109,73 +112,3 @@ const Organizations = () => {
 }
 
 export default Organizations
-
-
-// {foundationsPage === "firstPage" &&
-// <div>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 1"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-//     <div className="horizontalLine"/>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 2"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-//     <div className="horizontalLine"/>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 3"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-// </div>
-// }
-// {foundationsPage === "secondPage" &&
-// <div>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 4"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-//     <div className="horizontalLine"/>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 5"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-//     <div className="horizontalLine"/>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 6"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-// </div>
-// }
-// {foundationsPage === "thirdPage" &&
-// <div>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 7"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-//     <div className="horizontalLine"/>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 8"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-//     <div className="horizontalLine"/>
-//     <div>
-//         <h1>Fundacja "lorem Ipsum 9"</h1>
-//         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </span>
-//         <span>Lorem ipsum dolor.</span>
-//     </div>
-// </div>
-// }
-// <div className="pageButtons">
-//     <button className="pageButton" onClick={() => setFoundationsPage("firstPage")}>1</button>
-//     <button className="pageButton" onClick={() => setFoundationsPage("secondPage")}>2</button>
-//     <button className="pageButton" onClick={() => setFoundationsPage("thirdPage")}>3</button>
-// </div>

@@ -5,28 +5,55 @@ import {Link} from "react-scroll";
 const Navbar = () => {
 
     return (
-        <div className="navbarContainer">
-            <Link className="navbarElement"
-                  to="Home" smooth={true} duration={1000}>Home</Link>
-            <Link className="navbarElement"
-                  to="WhatsUp"
-                  smooth={true}
-                  duration={1000}>O co chodzi?</Link>
-            <Link className="navbarElement"
-                  to="About"
-                  smooth={true}
-                  duration={1000}> O nas</Link>
-            <Link className="navbarElement"
-                  to="Organizations"
-                  smooth={true}
-                  duration={1000}>Fundacja i
-                organizacje</Link>
-            <Link className="navbarElement"
-                  to="Contact"
-                  smooth={true}
-                  duration={1000}>Kontakt</Link>
-        </div>
-    )
+        <div className="navigation">
+            <div className="navButtons">
+                <div className="navButtonWrapper">
+                    <button className="navButton">
+                        <Link
+                            to="Home"
+                            smooth={true}
+                            duration={1000}>Start
+                        </Link>
+                    </button>
+                </div>
+                <div className="navButtonWrapper">
+                    <button className="navButton">
+                        <Link
+                            to="WhatsUp"
+                            smooth={true}
+                            duration={1000}>O co chodzi?
+                        </Link>
+                    </button>
+                </div>
+                <div className="navButtonWrapper">
+                    <button className="navButton">
+                        <Link
+                            to="About"
+                            smooth={true}
+                            duration={1000}> O nas
+                        </Link>
+                    </button>
+                </div>
+                <div className="navButtonWrapper">
+                    <button className="navButton">
+                        <Link
+                            to="Organizations"
+                            smooth={true}
+                            duration={1000}>Fundacja i organizacje
+                        </Link>
+                    </button>
+                </div>
+                <div className="navButtonWrapper">
+                    <button className="navButton">
+                        <Link
+                            to="Contact"
+                            smooth={true}
+                            duration={1000}>Kontakt
+                        </Link>
+                    </button>
+                </div>
+            </div>
+        </div>)
 }
 
 export default Navbar

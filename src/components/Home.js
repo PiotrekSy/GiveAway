@@ -8,13 +8,13 @@ import SimpleSteps from "./SimpleSteps";
 
 const Home = () => {
     return (
-        <div className="">
-            <HomeHeader/>
-            <WhatsUp/>
-            <SimpleSteps/>
-            <About/>
-            <Organizations/>
-            <Contact/>
+        <div className="wholeApp">
+            <HomeHeader className="homeHeader"/>
+            <WhatsUp className="whatsUp"/>
+            <SimpleSteps className="simpleSteps"/>
+            <About className="about"/>
+            <Organizations className="organizations"/>
+            <Contact className="contact"/>
         </div>
     )
 }

@@ -3,6 +3,10 @@
 
 //normalize:
 html {
+  a, li {
+    text-decoration: none;
+  }
+
   list-style: none;
   text-decoration: none;
   line-height: 1.15; /* 1 */
@@ -19,7 +23,7 @@ html {
   }
 
   h1 {
-    font-size: 2em;
+    font-size: 18px;
     margin: 0.67em 0;
   }
 
@@ -194,6 +198,218 @@ html {
 }
 
 //style do tranzycji karuzeli ():
+
+$baseHeight: 100vh;
+
+.wholeApp {
+
+
+  .homeHeader {
+    height: $baseHeight;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+
+    .leftSide {
+      height: 100%;
+      width: 50vw;
+      background: url("../../assets/Home-Hero-Image.jpg") no-repeat bottom;
+      background-size: contain;
+    }
+
+    .rightSide {
+      position: relative;
+      width: 50vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      .authSection {
+        flex-wrap: nowrap;
+        width: 50vw;
+        top: 2%;
+        position: absolute;
+        right: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+
+        .authButtons {
+          display: flex;
+          flex-direction: row;
+          width: 25%;
+          justify-content: right;
+          height: 50px;
+          text-wrap: none;
+
+          .authUserWrapper {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            width: auto;
+            text-wrap: none;
+
+            .loggedUser {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: right;
+              width: 600px;
+              height: 10px;
+              margin-right: 20px;
+            }
+          }
+
+          .authButtonWrapper {
+            height: 90%;
+            width: 100%;
+            padding-left: 2px;
+            padding-right: 2px;
+
+            .authButton:hover {
+              border-color: var(--colour-yellow);
+              border-width: 1px;
+              border-style: solid;
+              box-shadow: 1px 1px var(--colour-yellow);
+            }
+
+            .authButton {
+              border: none;
+              background: none;
+              min-width: 190px;
+              height: 100%;
+            }
+          }
+        }
+      }
+
+      .navigation {
+        font-size: 18px;
+        width: 50vw;
+        top: 7%;
+        position: absolute;
+        right: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: right;
+
+        .navButtons {
+          display: flex;
+          flex-direction: row;
+          width: auto;
+          justify-content: right;
+          padding-left: 10px;
+          height: 50px;
+
+          .navButtonWrapper {
+            text-wrap: none;
+            height: 90%;
+            width: 90%;
+            padding-left: 2px;
+            padding-right: 2px;
+          }
+
+          .navButton {
+            border: none;
+            background: none;
+            min-width: 190px;
+            height: 100%;
+          }
+
+          .navButton:hover {
+            border-color: var(--colour-yellow);
+            border-width: 1px;
+            border-style: solid;
+            box-shadow: 1px 1px var(--colour-yellow);
+          }
+        }
+      }
+
+      .basePageMiddleSection {
+        position: absolute;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        top: 40vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .baseText {
+          width: 100%;
+          font-size: 2.4rem;
+          margin-bottom: 20px;
+        }
+
+        .basePageDecoration {
+          width: 30%;
+          height: 3.5%;
+          background: url("../../assets/Decoration.svg") no-repeat center;
+          background-size: cover;
+          margin-bottom: 40px;
+        }
+
+        .baseButtons {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          padding-top: 40px;
+
+          .mainPageButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            height: 10vh;
+            width: 250px;
+            margin: 40px;
+
+            .mainPageButtonRange {
+              display: flex;
+              text-align: center;
+              align-self: center;
+              justify-self: center;
+              position: relative;
+              height: 100%;
+              width: 100%;
+
+              .mainButtonText {
+                position: relative;
+                font-size: 2.3rem;
+                color: black;
+                margin: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .whatsUp {
+    height: 300px;
+  }
+
+  .simpleSteps {
+    height: $baseHeight;
+  }
+
+  .about {
+    height: $baseHeight;
+  }
+
+  .organizations {
+    height: $baseHeight;
+  }
+
+  .contact {
+    height: $baseHeight;
+  }
+
+}
 
 
 //my styles:
