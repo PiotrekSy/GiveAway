@@ -1,8 +1,7 @@
-@import "./settings/colors";
-@import "./settings/fonts";
-
-//normalize:
+//normalize i importy:
 html {
+  overflow-x: hidden;
+
   a, li {
     text-decoration: none;
   }
@@ -197,13 +196,12 @@ html {
   }
 }
 
+@import "./settings/colors";
+@import "./settings/fonts";
+$baseHeight: 100vh;
 //style do tranzycji karuzeli ():
 
-$baseHeight: 100vh;
-
 .wholeApp {
-
-
   .homeHeader {
     height: $baseHeight;
     width: 100vw;
@@ -283,6 +281,7 @@ $baseHeight: 100vh;
             }
           }
         }
+
       }
 
       .navigation {
@@ -388,13 +387,133 @@ $baseHeight: 100vh;
     }
   }
 
-
   .whatsUp {
-    height: 300px;
+    height: 30vh;
+    background: transparent url('../../assets/3 Columns Background.png') 0 0 padding-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .whatsUpItem {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .whatsUpCounter {
+        font-size: 90px;
+        text-align: center;
+      }
+
+      .whatsUpTitle {
+        font-size: 24px;
+        text-align: center;
+        margin: 30px 0 30px 0;
+      }
+
+      .whatsUpDescription {
+        font-size: 20px;
+        text-align: center;
+      }
+    }
   }
 
   .simpleSteps {
-    height: $baseHeight;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .simpleTitle {
+      font-size: 35px;
+    }
+
+    .simpleDecoration {
+      width: 200px;
+      height: 25px;
+      background: url("../../assets/Decoration.svg") no-repeat center;
+      background-size: cover;
+      margin-bottom: 40px;
+    }
+
+    .simpleStepsItems {
+      width: 100%;
+      height: 40%;
+      background-color: var(--colour-light-grey);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .simpleIcon {
+        text-align: center;
+        margin: 15px;
+      }
+
+      .simpleStepsItem {
+        text-align: center;
+        height: 100%;
+        width: 15%;
+        display: flex;
+      }
+
+      .simpleCommand {
+        text-align: center;
+        margin: 15px;
+      }
+
+      .simpleLine {
+        text-align: center;
+        height: 1px;
+        width: 5vw;
+        background: black;
+        margin: 15px;
+      }
+
+      .simpleDescription {
+        text-align: center;
+        margin: 15px;
+      }
+    }
+
+
+    .simpleButtons {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding-top: 30px;
+
+      .simpleButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        height: 10vh;
+        width: 250px;
+        margin: 40px;
+
+        .simpleButtonRange {
+          display: flex;
+          text-align: center;
+          align-self: center;
+          justify-self: center;
+          position: relative;
+          height: 100%;
+          width: 100%;
+
+          .simpleButtonText {
+            position: relative;
+            font-size: 2.3rem;
+            color: black;
+            margin: auto;
+          }
+        }
+      }
+    }
   }
 
   .about {
