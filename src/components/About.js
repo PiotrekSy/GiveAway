@@ -15,7 +15,8 @@ const About = () => {
                 <div className="aboutSignature"/>
             </div>
             <div className="rightSide"/>
-        </div>)
+        </div>
+    )
 }
 
 export default About

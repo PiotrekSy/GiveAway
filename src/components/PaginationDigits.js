@@ -19,11 +19,13 @@ const Pagination = ({elementsPerPage, totalElements, paginate}) => {
                 {paginationDigits.map(number =>
                     <div key={number} className="paginationDigitArea">
                         <div className="paginationDigit"
-                             onClick={() => paginate(number)}>{number}</div>
+                             onClick={() => paginate(number)}>{number}
+                        </div>
                     </div>
                 )}
             </div>
-        </div>)
+        </div>
+    )
 }
 
 export default Pagination

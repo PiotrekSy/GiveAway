@@ -238,7 +238,7 @@ $baseHeight: 100vh;
           flex-direction: row;
           width: 25%;
           justify-content: right;
-          height: 50px;
+          height: 60px;
 
           .authUserWrapper {
             display: flex;
@@ -298,7 +298,7 @@ $baseHeight: 100vh;
           width: auto;
           justify-content: right;
           padding-left: 10px;
-          height: 50px;
+          height: 60px;
 
           .navButtonWrapper {
             text-wrap: none;
@@ -311,8 +311,19 @@ $baseHeight: 100vh;
           .navButton {
             border: none;
             background: none;
-            min-width: 190px;
+            min-width: 200px;
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .navButtonLink {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
           }
 
           .navButton:hover {
@@ -381,6 +392,10 @@ $baseHeight: 100vh;
                 color: black;
                 margin: auto;
               }
+            }
+
+            .mainPageButtonRange:hover {
+              background: rgba(46, 46, 49, 0.1);
             }
           }
         }
@@ -511,7 +526,6 @@ $baseHeight: 100vh;
       }
     }
 
-
     .simpleButtons {
       position: relative;
       display: flex;
@@ -543,8 +557,13 @@ $baseHeight: 100vh;
             margin: auto;
           }
         }
+
+        .simpleButtonRange:hover {
+          background: rgba(46, 46, 49, 0.1);
+        }
       }
     }
+
   }
 
   .about {
@@ -619,6 +638,7 @@ $baseHeight: 100vh;
       padding-top: 40px;
 
       .organizationButton {
+        border: 1px solid white;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -644,7 +664,7 @@ $baseHeight: 100vh;
         }
 
         .organizationButtonRange:hover {
-          border: 1px solid #2e2e31;
+          cursor: pointer;
         }
       }
     }
@@ -729,6 +749,7 @@ $baseHeight: 100vh;
     }
 
     .organizationsDecoration {
+      top: 90%;
       width: 280px;
       height: 35px;
       background: url("../../assets/Decoration.svg") no-repeat center;
@@ -744,8 +765,6 @@ $baseHeight: 100vh;
       line-height: 2;
       margin-top: 2%;
     }
-
-
   }
 
   .contact {
@@ -830,7 +849,8 @@ $baseHeight: 100vh;
           textarea {
             line-height: 1.5;
             resize: none;
-            height: 100px;
+            height: 110px;
+            text-align: justify;
             margin-top: 2%;
             width: 100%;
             border: none;
@@ -869,6 +889,10 @@ $baseHeight: 100vh;
                 color: #3a3c40;
                 margin: auto;
               }
+            }
+
+            .formButtonRange:hover {
+              background: rgba(46, 46, 49, 0.1);
             }
           }
         }
@@ -929,4 +953,22 @@ $baseHeight: 100vh;
     }
   }
 
+  .buttonToTop {
+    z-index: 10;
+    position: fixed;
+    bottom: 100px;
+    left: 100px;
+    height: 100px;
+    width: 100px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAD648;
+
+  }
+  .buttonToTop:hover {
+    background-color: rgba(239, 190, 32, 0.35);
+  }
 }

@@ -34,49 +34,54 @@ const Organizations = () => {
         setCurrentPage(pageNumber)
     }
 
-    return (<div className="organizations">
-        <span className="organizationsTitle">Komu pomagamy?</span>
-        <div className="organizationsDecoration"/>
-        <div className="organizationsButtons">
-            <div className="organizationButton"
-                 onClick={(e) => {
-                     e.preventDefault()
-                     setCurrentPage(1)
-                     setType("fundations")
-                 }}>
-                <div className="organizationButtonRange">
-                    <p className="organizationButtonText">Fundacjom</p>
+
+    return (
+        <div className="organizations">
+            <span className="organizationsTitle">Komu pomagamy?</span>
+            <div className="organizationsDecoration"/>
+            <div className="organizationsButtons">
+                <div className="organizationButton"
+                     style={{border: (type === "fundations" ? "1px solid black" : "none")}}
+                     onClick={(e) => {
+                         e.preventDefault()
+                         setCurrentPage(1)
+                         setType("fundations")
+                     }}>
+                    <div className="organizationButtonRange">
+                        <p className="organizationButtonText">Fundacjom</p>
+                    </div>
+                </div>
+                <div className="organizationButton"
+                     style={{border: (type === "nfo" ? "1px solid black" : "none")}}
+                     onClick={(e) => {
+                         e.preventDefault()
+                         setCurrentPage(1)
+                         setType("nfo")
+                     }}>
+                    <div className="organizationButtonRange">
+                        <p className="organizationButtonText">Organizacjom <br/> pozarządowym</p>
+                    </div>
+                </div>
+                <div className="organizationButton"
+                     style={{border: (type === "local" ? "1px solid black" : "none")}}
+                     onClick={(e) => {
+                         e.preventDefault()
+                         setCurrentPage(1)
+                         setType("local")
+                     }}>
+                    <div className="organizationButtonRange">
+                        <p className="organizationButtonText">Lokalnym <br/> zbiórkom</p>
+                    </div>
                 </div>
             </div>
-            <div className="organizationButton"
-                 onClick={(e) => {
-                     e.preventDefault()
-                     setCurrentPage(1)
-                     setType("nfo")
-                 }}>
-                <div className="organizationButtonRange">
-                    <p className="organizationButtonText">Organizacjom <br/> pozarządowym</p>
-                </div>
-            </div>
-            <div className="organizationButton"
-                 onClick={(e) => {
-                     e.preventDefault()
-                     setCurrentPage(1)
-                     setType("local")
-                 }}>
-                <div className="organizationButtonRange">
-                    <p className="organizationButtonText">Lokalnym <br/> zbiórkom</p>
-                </div>
-            </div>
-        </div>
-        <span className="organizationsDescription">
+            <span className="organizationsDescription">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda beatae blanditiis
             cupiditate dicta dolor eligendi facere harum id, illo, iste iusto, magnam nisi quod reiciendis
-            suscipit tempora unde voluptatum.</span>
+            suscipit tempora unde voluptatum.
+            </span>
 
-        <div className="organizationsContainer">
-            {type === "fundations" &&
-                <div className="organizationsItems">
+            <div className="organizationsContainer">
+                {type === "fundations" && <div className="organizationsItems">
                     {fundationsList.map(element => <div key={element.name} className="listElement">
                         <div className="organizationMainData">
                             <span className="organizationName">{element.name}</span>
@@ -91,8 +96,7 @@ const Organizations = () => {
                                           paginate={paginate}
                         />}
                 </div>}
-            {type === "nfo" &&
-                <div className="organizationsItems">
+                {type === "nfo" && <div className="organizationsItems">
                     {organisationsList.map(element => <div key={element.name} className="listElement">
                         <div className="organizationMainData">
                             <span className="organizationName">{element.name}</span>
@@ -107,8 +111,7 @@ const Organizations = () => {
                                           paginate={paginate}
                         />}
                 </div>}
-            {type === "local" &&
-                <div className="organizationsItems">
+                {type === "local" && <div className="organizationsItems">
                     {localList.map(element => <div key={element.name} className="listElement">
                         <div className="organizationMainData">
                             <span className="organizationName">{element.name}</span>
@@ -123,8 +126,8 @@ const Organizations = () => {
                                           paginate={paginate}
                         />}
                 </div>}
-        </div>
-    </div>)
+            </div>
+        </div>)
 }
 
 export default Organizations
