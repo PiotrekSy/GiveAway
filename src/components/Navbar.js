@@ -10,7 +10,7 @@ const Navbar = () => {
                 <div className="navButtonWrapper">
                     <button className="navButton">
                         <Link className="navButtonLink"
-
+                              to="home"
                               spy={true}
                               smooth={true}
                               duration={500}>
