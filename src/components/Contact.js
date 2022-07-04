@@ -5,6 +5,7 @@ import {db} from "./firebase";
 const Contact = () => {
 
     //wyłączenie wyświetlania domyślnego błędu walidacji WYŁĄCZENIE POPUPS:
+
     document.addEventListener('invalid', (function () {
         return function (e) {
             e.preventDefault();
@@ -14,7 +15,7 @@ const Contact = () => {
     //walidacja imienia:
 
     const [name, setName] = useState("");
-    const [nameError, setNameError] = useState(" ");
+    const [nameError, setNameError] = useState("");
 
     const handleNameChange = () => {
         if (name.includes(" ")) {
@@ -27,7 +28,7 @@ const Contact = () => {
     //walidacja emaila:
 
     const [email, setEmail] = useState("")
-    const [emailError, setEmailError] = useState(" ");
+    const [emailError, setEmailError] = useState("");
 
     function isValidEmail(email) {
         return /\S+@\S+\.\S+/.test(email);
@@ -101,6 +102,7 @@ const Contact = () => {
                     <div className="upperInputWrapper">
                         <div className="upperLabel"><b>Wpisz swoje imię</b></div>
                         <input className="upperInput"
+                               style={{borderColor: (nameError.length < 2 && nameError !== " " ? "black" : "red")}}
                                value={name}
                                onChange={(e) => {
                                    e.preventDefault()
@@ -114,6 +116,7 @@ const Contact = () => {
                     <div className="upperInputWrapper">
                         <div className="upperLabel"><b>Wpisz swój email</b></div>
                         <input className="upperInput"
+                               style={{borderColor: (emailError.length < 2 && emailError !== " " ? "black" : "red")}}
                                value={email}
                                onChange={(e) => {
                                    e.preventDefault()
@@ -128,6 +131,7 @@ const Contact = () => {
                 <div className="bottomLabel">
                     <div><b>Wpisz swoją wiadomość</b></div>
                     <textarea className="bottomInput"
+                              style={{borderColor: (messageError.length < 2 && messageError !== " " ? "black" : "red")}}
                               value={message}
                               onChange={(e) => {
                                   e.preventDefault()
