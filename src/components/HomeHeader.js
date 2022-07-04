@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import AuthSection from "./AuthSection";
 import {Link} from "react-router-dom";
 
-
 const HomeHeader = () => {
     return (
         <div className="homeHeader">

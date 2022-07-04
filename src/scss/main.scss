@@ -280,7 +280,6 @@ $baseHeight: 100vh;
             }
           }
         }
-
       }
 
       .navigation {
@@ -397,12 +396,32 @@ $baseHeight: 100vh;
 
             .mainPageButtonRange:hover {
               background: rgba(46, 46, 49, 0.1);
-              box-shadow: 4px 4px var(--colour-dark-grey);
+              box-shadow: 2px 2px var(--colour-dark-grey);
             }
           }
         }
       }
     }
+  }
+
+  .buttonToTop {
+    z-index: 10;
+    position: fixed;
+    bottom: 100px;
+    left: 100px;
+    height: 100px;
+    width: 100px;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAD648;
+
+  }
+
+  .buttonToTop:hover {
+    background-color: rgba(239, 190, 32, 0.35);
   }
 
   .whatsUp {
@@ -562,11 +581,10 @@ $baseHeight: 100vh;
 
         .simpleButtonRange:hover {
           background: rgba(46, 46, 49, 0.1);
-          box-shadow: 4px 4px var(--colour-dark-grey);
+          box-shadow: 2px 2px var(--colour-dark-grey);
         }
       }
     }
-
   }
 
   .about {
@@ -791,7 +809,7 @@ $baseHeight: 100vh;
       display: flex;
       flex-direction: column;
       height: 100%;
-      width: 100%;
+      width: 80%;
       align-items: center;
       justify-content: center;
 
@@ -808,8 +826,16 @@ $baseHeight: 100vh;
         margin-bottom: 40px;
       }
 
-      .form {
+      .succesMessageWrapper {
+        font-size: 20px;
 
+        .succesMessage {
+          color: #66ce66;
+        }
+      }
+
+
+      .form {
         width: 70%;
         height: 45%;
 
@@ -839,6 +865,16 @@ $baseHeight: 100vh;
               border: none;
               border-bottom: 1px solid rgba(73, 73, 77, 0.4);
             }
+
+            .upperInput:focus {
+              outline: none;
+            }
+
+            .errorMessage {
+              color: red;
+              height: 50px;
+              padding-top: 10px;
+            }
           }
         }
 
@@ -859,6 +895,17 @@ $baseHeight: 100vh;
             border: none;
             border-bottom: 1px solid rgba(73, 73, 77, 0.4);
           }
+        }
+
+        textarea:focus {
+          outline: none;
+        }
+
+
+        .errorMessage {
+          color: red;
+          height: 50px;
+          padding-top: 10px;
         }
 
         .formButtonWrapper {
@@ -896,7 +943,7 @@ $baseHeight: 100vh;
 
             .formButtonRange:hover {
               background: rgba(46, 46, 49, 0.1);
-              box-shadow: 4px 4px var(--colour-dark-grey);
+              box-shadow: 2px 2px var(--colour-dark-grey);
             }
           }
         }
@@ -957,23 +1004,4 @@ $baseHeight: 100vh;
     }
   }
 
-  .buttonToTop {
-    z-index: 10;
-    position: fixed;
-    bottom: 100px;
-    left: 100px;
-    height: 100px;
-    width: 100px;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #FAD648;
-
-  }
-
-  .buttonToTop:hover {
-    background-color: rgba(239, 190, 32, 0.35);
-  }
 }
