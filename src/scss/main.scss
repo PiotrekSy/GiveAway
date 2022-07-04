@@ -225,6 +225,7 @@ $baseHeight: 100vh;
       height: 100%;
 
       .authSection {
+        font-size: 18px;
         width: 50vw;
         top: 2%;
         position: absolute;
@@ -285,7 +286,7 @@ $baseHeight: 100vh;
       .navigation {
         font-size: 18px;
         width: 50vw;
-        top: 7%;
+        top: 9%;
         position: absolute;
         right: 10%;
         display: flex;
@@ -396,6 +397,7 @@ $baseHeight: 100vh;
 
             .mainPageButtonRange:hover {
               background: rgba(46, 46, 49, 0.1);
+              box-shadow: 4px 4px var(--colour-dark-grey);
             }
           }
         }
@@ -560,6 +562,7 @@ $baseHeight: 100vh;
 
         .simpleButtonRange:hover {
           background: rgba(46, 46, 49, 0.1);
+          box-shadow: 4px 4px var(--colour-dark-grey);
         }
       }
     }
@@ -893,6 +896,7 @@ $baseHeight: 100vh;
 
             .formButtonRange:hover {
               background: rgba(46, 46, 49, 0.1);
+              box-shadow: 4px 4px var(--colour-dark-grey);
             }
           }
         }
@@ -968,6 +972,7 @@ $baseHeight: 100vh;
     background-color: #FAD648;
 
   }
+
   .buttonToTop:hover {
     background-color: rgba(239, 190, 32, 0.35);
   }

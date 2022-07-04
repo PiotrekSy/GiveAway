@@ -8,8 +8,7 @@ const AuthSection = () => {
             <div className="authButtons">
                 <div className="authUserWrapper">
                     <p className="loggedUser">
-                        Cześć, placeholder...
-                        {/*TODO wyświetlanie nazwy użytkownika*/}
+                        {/*TODO ?? wyświetlanie nazwy użytkownika*/}
                         {/*<p>{userName}</p>*/}
                     </p>
                 </div>
