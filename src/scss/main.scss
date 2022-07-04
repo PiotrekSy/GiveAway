@@ -404,18 +404,18 @@ $baseHeight: 100vh;
       align-items: center;
 
       .whatsUpCounter {
-        font-size: 90px;
+        font-size: 4rem;
         text-align: center;
       }
 
       .whatsUpTitle {
-        font-size: 24px;
+        font-size: 1rem;
         text-align: center;
         margin: 30px 0 30px 0;
       }
 
       .whatsUpDescription {
-        font-size: 20px;
+        font-size: 0.8rem;
         text-align: center;
       }
     }
@@ -452,7 +452,6 @@ $baseHeight: 100vh;
 
       .simpleIcon1 {
         display: block;
-        text-align: center;
         height: 90px;
         width: 90px;
         background: url("../../assets/Icon-1.svg") center no-repeat;
@@ -755,17 +754,24 @@ $baseHeight: 100vh;
     flex-direction: row;
 
     .leftSide {
+      z-index: 3;
+      height: 100vh;
       width: 100vw;
       background: url("../../assets/Background-Contact-Form.jpg");
       background-size: cover;
       opacity: 0.1;
+
     }
 
     .rightSide {
+      z-index: 1;
+      background: none;
       display: flex;
       flex-direction: column;
       height: 100%;
-      width: 40%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
 
       .contactTitle {
         font-size: 35px;
@@ -780,6 +786,93 @@ $baseHeight: 100vh;
         margin-bottom: 40px;
       }
 
+      .form {
+
+        width: 70%;
+        height: 45%;
+
+        .upperLabels {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-top: 5%;
+          margin-bottom: 5%;
+
+          .upperInputWrapper {
+            width: 48%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 1%;
+
+            .upperLabel {
+              display: flex;
+              width: 45%;
+            }
+
+            .upperInput {
+              line-height: 1.5;
+              margin-top: 15%;
+              width: 97%;
+              border: none;
+              border-bottom: 1px solid rgba(73, 73, 77, 0.4);
+            }
+          }
+        }
+
+        .bottomLabel {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-top: 10%;
+
+          textarea {
+            line-height: 1.5;
+            resize: none;
+            height: 100px;
+            margin-top: 2%;
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid rgba(73, 73, 77, 0.4);
+          }
+        }
+
+        .formButtonWrapper {
+          width: 100%;
+          display: flex;
+          justify-content: end;
+
+          .formButton {
+            height: 50px;
+            width: 150px;
+            margin-top: 40px;
+            position: relative;
+
+
+            .formButtonRange {
+              cursor: pointer;
+              display: flex;
+              text-align: center;
+              align-self: center;
+              justify-self: center;
+              position: relative;
+              height: 100%;
+              width: 100%;
+              background: none;
+              border: 1px solid rgba(58, 60, 64, 0.4);
+
+              .formButtonText {
+                position: relative;
+                padding: 5px;
+                font-size: 1rem;
+                color: #3a3c40;
+                margin: auto;
+              }
+            }
+          }
+        }
+      }
     }
 
     .footer {
@@ -802,20 +895,38 @@ $baseHeight: 100vh;
       }
 
       .footerMediaWrapper {
+        width: 200px;
         position: absolute;
+        bottom: 2%;
+        right: 5%;
+        margin-bottom: 1%;
 
         .footerMedia {
           display: flex;
           flex-direction: row;
           position: relative;
+          justify-content: center;
+          align-items: center;
+
+
+          .facebookIcon {
+            margin-left: 10px;
+            display: block;
+            height: 20px;
+            width: 20px;
+            background: url("../../assets/Facebook.svg") center no-repeat;
+          }
+
+          .instagramIcon {
+            margin-left: 10px;
+            display: block;
+            height: 50px;
+            width: 50px;
+            background: url("../../assets/Instagram.svg") center no-repeat;
+          }
         }
       }
     }
   }
 
 }
-
-
-//my styles:
-
-
