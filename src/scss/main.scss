@@ -1076,6 +1076,7 @@ $baseHeight: 100vh;
   }
 
   .navigation {
+    text-decoration: none;
     font-size: 18px;
     width: 50vw;
     top: 9%;
@@ -1150,6 +1151,7 @@ $baseHeight: 100vh;
     .greyArea {
       height: 30vh;
       width: 20vw;
+      min-width: 500px;
       background-color: var(--colour-light-grey);
       display: flex;
       flex-direction: column;
