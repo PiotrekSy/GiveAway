@@ -9,14 +9,14 @@ import ButtonToTop from "./ButtonToTop";
 
 const Home = () => {
     return (
-        <div className="wholeApp">
+        <div className="homepage">
             <ButtonToTop id="buttonToTop" className="buttonToTopWrapper"/>
             <HomeHeader id="home" className="homeHeader"/>
-            <WhatsUp id="whatsUp" className="whatsUp"/>
+            <WhatsUp  className="whatsUp"/>
             <SimpleSteps id="simpleSteps" className="simpleSteps"/>
-            <About id="about" className="about"/>
-            <Organizations id="organizations" className="organizations"/>
-            <Contact id="contact" className="contact"/>
+            <About  className="about"/>
+            <Organizations  className="organizations"/>
+            <Contact className="contact"/>
         </div>
     )
 }

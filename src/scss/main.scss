@@ -199,9 +199,9 @@ html {
 @import "./settings/colors";
 @import "./settings/fonts";
 $baseHeight: 100vh;
-//style do tranzycji karuzeli ():
 
-.wholeApp {
+.homepage {
+
   .homeHeader {
     height: $baseHeight;
     width: 100vw;
@@ -225,6 +225,7 @@ $baseHeight: 100vh;
       height: 100%;
 
       .authSection {
+        cursor: pointer;
         font-size: 18px;
         width: 50vw;
         top: 2%;
@@ -266,6 +267,7 @@ $baseHeight: 100vh;
             padding-right: 2px;
 
             .authButton:hover {
+              cursor: pointer;
               border-color: var(--colour-yellow);
               border-width: 1px;
               border-style: solid;
@@ -283,6 +285,7 @@ $baseHeight: 100vh;
       }
 
       .navigation {
+
         font-size: 18px;
         width: 50vw;
         top: 9%;
@@ -301,6 +304,7 @@ $baseHeight: 100vh;
           height: 60px;
 
           .navButtonWrapper {
+
             text-wrap: none;
             height: 90%;
             width: 90%;
@@ -327,6 +331,7 @@ $baseHeight: 100vh;
           }
 
           .navButton:hover {
+            cursor: pointer;
             border-color: var(--colour-yellow);
             border-width: 1px;
             border-style: solid;
@@ -1000,6 +1005,223 @@ $baseHeight: 100vh;
             background: url("../../assets/Instagram.svg") center no-repeat;
           }
         }
+      }
+    }
+  }
+}
+
+.registrationForm {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .authSection {
+    font-size: 18px;
+    width: 50vw;
+    top: 2%;
+    position: absolute;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    .authButtons {
+      display: flex;
+      flex-direction: row;
+      width: 25%;
+      justify-content: right;
+      height: 60px;
+
+      .authUserWrapper {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        width: auto;
+        text-wrap: none;
+
+        .loggedUser {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: right;
+          width: 600px;
+          height: 10px;
+          margin-right: 20px;
+        }
+      }
+
+      .authButtonWrapper {
+        height: 90%;
+        width: 100%;
+        padding-left: 2px;
+        padding-right: 2px;
+
+        .authButton:hover {
+          border-color: var(--colour-yellow);
+          border-width: 1px;
+          border-style: solid;
+          box-shadow: 1px 1px var(--colour-yellow);
+        }
+
+        .authButton {
+          border: none;
+          background: none;
+          min-width: 190px;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .navigation {
+    font-size: 18px;
+    width: 50vw;
+    top: 9%;
+    position: absolute;
+    right: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    .navButtons {
+      display: flex;
+      flex-direction: row;
+      width: auto;
+      justify-content: right;
+      padding-left: 10px;
+      height: 60px;
+
+      .navButtonWrapper {
+        text-wrap: none;
+        height: 90%;
+        width: 90%;
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+
+      .navButton {
+        border: none;
+        background: none;
+        min-width: 200px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navButtonLink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+
+      .navButton:hover {
+        border-color: var(--colour-yellow);
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 1px 1px var(--colour-yellow);
+      }
+    }
+  }
+
+  .regForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .regTitle {
+      font-size: 35px;
+    }
+
+    .regDecoration {
+      margin: 30px 0 40px 0;
+      width: 200px;
+      height: 25px;
+      background: url("../../assets/Decoration.svg") no-repeat center;
+      background-size: cover;
+
+    }
+
+    .greyArea {
+      height: 30vh;
+      width: 20vw;
+      background-color: var(--colour-light-grey);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      padding-top: 5%;
+      padding-bottom: 10%;
+      margin-bottom: 20%;
+
+      .regButtons {
+        position: absolute;
+        bottom: 15vh;
+        width: 500px;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+
+        .regButton {
+          height: 50px;
+          width: 150px;
+          position: relative;
+
+          .regButtonRange {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            background: none;
+            border: none;
+
+            .regButtonText {
+              align-self: center;
+              position: relative;
+              padding: 5px;
+              font-size: 1rem;
+              color: #3a3c40;
+              margin: auto;
+            }
+
+            .regLoginLink {
+              display: flex;
+              align-self: center;
+              justify-content: center;
+            }
+          }
+
+          .regButtonRange:hover {
+            background: rgba(46, 46, 49, 0.1);
+            box-shadow: 2px 2px var(--colour-dark-grey);
+          }
+        }
+      }
+
+      .regLabel {
+        display: flex;
+        width: 70%;
+      }
+
+      .regInput {
+        background: none;
+        position: relative;
+        line-height: 1.5;
+        width: 70%;
+        border: none;
+        border-bottom: 1px solid rgba(73, 73, 77, 0.4);
+      }
+
+      .regInput:focus {
+        outline: none;
       }
     }
   }

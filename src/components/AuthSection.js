@@ -4,7 +4,6 @@ import React from "react";
 const AuthSection = () => {
     return (
         <div className="authSection">
-
             <div className="authButtons">
                 <div className="authUserWrapper">
                     <p className="loggedUser">
@@ -19,7 +18,7 @@ const AuthSection = () => {
                 </div>
                 <div className="authButtonWrapper">
                     <button className="authButton">
-                        <Link to='/Register'>Zarejestruj</Link>
+                        <Link to='/Register'>Załóż konto</Link>
                     </button>
                 </div>
             </div>

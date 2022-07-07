@@ -2,7 +2,7 @@ import React from "react";
 
 const WhatsUp = () => {
     return (
-        <div className="whatsUp">
+        <div className="whatsUp" id="whatsUp">
             <div className="whatsUpItem">
                 <div className="whatsUpCounter">9</div>
                 <div className="whatsUpTitle">ODDANYCH WORKÓW</div>

@@ -36,7 +36,7 @@ const Organizations = () => {
 
 
     return (
-        <div className="organizations">
+        <div className="organizations" id="organizations">
             <span className="organizationsTitle">Komu pomagamy?</span>
             <div className="organizationsDecoration"/>
             <div className="organizationsButtons">
