@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import AuthSection from "./AuthSection";
 import RegisterNavbar from "./RegisterNavbar";
 import {Link} from "react-router-dom";
-import "firebase/auth"
 import {createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
+import "firebase/auth"
 import db, {auth} from "./firebase"
 import {useEffect} from "react";
-import {collection, onSnapshot, addDoc} from "@firebase/firestore";
+import {collection, onSnapshot} from "@firebase/firestore";
 
 
 const Register = () => {
@@ -16,7 +16,8 @@ const Register = () => {
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [passwordError, setPasswordError] = useState("")
     const [user, setUser] = useState({});
-    const [passwordConstantError, setPasswordConstantError] = useState("")
+    const [emailError, setEmailError] = useState("");
+
 
     useEffect(() => {
         onSnapshot(collection(db, "users"), (snapshot) => {
@@ -24,33 +25,7 @@ const Register = () => {
         });
     }, [])
 
-    //funkcja umieszczająca usera w database;
-    const addNewUser = async () => {
-        const userCollection = collection(db, "users");
-        const payload = {email: email, password: password, userType: "normal"}
-        await addDoc(userCollection, payload)
-    }
-    //rejestracja nowego konta po warunkiem tych samych haseł
-    const register = async (e) => {
-        e.preventDefault()
-        if (password !== passwordConfirm) {
-            setPasswordError('Hasła nie są identyczne!')
-        }
-        try {
-            await createUserWithEmailAndPassword(auth, email, password)
-            await addNewUser()
-            onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
-            setPasswordError("Zarejestrowano, przejdź do logowania :)")
-        } catch {
-            setPasswordError("Failed to create an account!")
-        }
-    }
-
-    //VALKIDACJE
-    // validacja emaila:
-    const [emailError, setEmailError] = useState("");
-
-    function isValidEmail(email) {
+    const isValidEmail = (email) => {
         return /\S+@\S+\.\S+/.test(email);
     }
 
@@ -61,16 +36,41 @@ const Register = () => {
             setEmailError("");
         }
     }
-    //walidacja haseł:
 
-    const passwordConstantCheck = () => {
-        if (password.length > 0 && password.length <= 6) {
-            setPasswordConstantError('Hasło ma mieć przynajmniej 6 znaków');
+    const passwordLengthCheck = () => {
+        if (password.length <= 4) {
+            setPasswordError('Hasło ma mieć przynajmniej 6 znaków');
         } else {
-            setPasswordConstantError("");
+            setPasswordError("");
         }
     }
 
+    // //funkcja umieszczająca usera w database;
+    //
+    // const addNewUser = async () => {
+    //     await addDoc(collection(db, "users"), {
+    //             email: email,
+    //             password: password,
+    //             userType: "normal"
+    //         }
+    //     )
+    // }
+
+    //rejestracja nowego konta pod warunkiem tych samych haseł
+    const register = async () => {
+        // if (!validate()) return
+        if (password !== passwordConfirm) {
+            return setPasswordError('Hasła nie są identyczne!')
+        }
+        try {
+            await createUserWithEmailAndPassword(auth, email, password)
+            onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
+            // await addNewUser()
+            setEmail("")
+        } catch {
+            setPasswordError("Failed to create an account!")
+        }
+    }
 
     return (
         <div className="registrationForm">
@@ -79,36 +79,34 @@ const Register = () => {
             <div className="regForm">
                 <div className="regTitle">Załóż konto</div>
                 <div className="regDecoration"></div>
+                <div style={{display: ""}}>{user.email}</div>
+
                 <form className="greyArea" onSubmit={register}>
-
-                    {/*labelki*/}
-
                     <label className="regLabel" htmlFor="email">Email:</label>
                     <input className="regInput" type="email"
                            id="email"
                            onChange={e => {
-                               setEmail(e.target.value)
-
-                           }}>
+                               setEmail(e.target.value);
+                           }}
+                           onBlur={emailCheck}>
                     </input>
-                    {emailError !== "" && <div>{emailError}</div>}
-
+                    {emailError !== "" && <div className="errorMessage">{emailError}</div>}
                     <label className="regLabel" htmlFor="password">Hasło:</label>
                     <input className="regInput" type="password"
                            id="password"
                            onChange={e => {
-                               passwordConstantCheck();
                                setPassword(e.target.value)
+                               passwordLengthCheck();
                            }}>
                     </input>
-                    {passwordConstantError !== "" && <div>{passwordConstantError}</div>}
-                    <label className="regLabel">Powtórz hasło:</label>
+                    {passwordError !== "" && <div className="errorMessage">{passwordError}</div>}
+                    <label className="regLabel" htmlFor="passwordConfirm">Powtórz hasło:</label>
                     <input className="regInput" type="password"
                            id="passwordConfirm"
                            onChange={e => setPasswordConfirm(e.target.value)}>
                     </input>
-
-                    {passwordError !== "" && <p>{passwordError}</p>}
+                    {passwordConfirm.length > 0 ? password !== passwordConfirm &&
+                        <div className="errorMessage">Hasła muszą być identyczne!!</div> : null}
 
                     {/*buttony*/}
                     <div className="regButtons">
@@ -117,7 +115,7 @@ const Register = () => {
                                     type="button"
                                     onClick={(e) => {
                                         e.preventDefault()
-                                        console.log("Loguję się !!!")
+                                        console.log("Wracam do logowania!!")
                                     }}>
                                 <Link to='/Login'
                                       className="regLoginLink">
@@ -128,11 +126,7 @@ const Register = () => {
                         <div className="regButton">
                             <button className="regButtonRange"
                                     type="submit"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        emailCheck();
-                                        passwordConstantCheck();
-                                        register();
+                                    onClick={() => {
                                         console.log("Rejestruję się !!!");
                                     }}>
                                 <div className="regButtonText">Załóż konto</div>
@@ -141,7 +135,8 @@ const Register = () => {
                     </div>
                 </form>
             </div>
-        </div>)
+        </div>
+    )
 }
 
 export default Register
