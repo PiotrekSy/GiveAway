@@ -1,26 +1,28 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import AuthSection from "./AuthSection";
 import RegisterNavbar from "./RegisterNavbar";
-import {Link} from "react-router-dom";
-import {signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
-import "firebase/auth"
-import db, {auth} from "./firebase"
-import {useEffect} from "react";
+import {Link,} from "react-router-dom";
+import {Navigate} from "react-router";
+import {signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+import "firebase/auth";
+import db, {auth} from "./firebase";
 import {collection, onSnapshot} from "@firebase/firestore";
+import {UserContext} from "./context/userProvider";
 
 const Login = () => {
-
     useEffect(() => {
         onSnapshot(collection(db, "users"), (snapshot) => {
             snapshot.docs.map(doc => doc.data());
         });
     }, [])
 
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("")
-    const [user, setUser] = useState({});
     const [emailError, setEmailError] = useState("");
+    const {user, setUser} = useContext(UserContext);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const isValidEmail = (email) => {
         return /\S+@\S+\.\S+/.test(email);
@@ -41,14 +43,19 @@ const Login = () => {
     }
 
     //funckcja logowania:
-    const login = async () => {
+    const login = async (e) => {
+        e.preventDefault()
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            onAuthStateChanged(auth, (currentUser) => setUser(currentUser));
-
+            await signInWithEmailAndPassword(auth, email, password)
+            onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
         } catch {
             console.log("Failed to log in!")
         }
+    }
+
+    //przekierowanie jeżeli użytkownik jest zalogowany:
+    if (user !== null) {
+        return <Navigate to="/"/>
     }
 
     return (
@@ -58,7 +65,6 @@ const Login = () => {
             <div className="regForm">
                 <div className="regTitle">Zaloguj się</div>
                 <div className="regDecoration"></div>
-                <div style={{display: ""}}>{user.email}</div>
                 <form className="greyArea"
                       style={{height: "20vh"}}
                       onSubmit={login}>
@@ -97,10 +103,7 @@ const Login = () => {
                         </div>
                         <div className="regButton">
                             <button className="regButtonRange"
-                                    type="submit"
-                                    onClick={() => {
-                                        console.log("Loguję się !!!");
-                                    }}>
+                                    type="submit">
                                 <div className="regButtonText">Zaloguj</div>
                             </button>
                         </div>

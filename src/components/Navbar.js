@@ -3,13 +3,14 @@ import {Link} from 'react-scroll'
 import {Link as LinkRouter} from "react-router-dom"
 
 const Navbar = () => {
+
     return (
         <div className="navigation">
             <div className="navButtons">
                 <div className="navButtonWrapper">
                     <button className="navButton">
                         <LinkRouter className="navButtonLink"
-                              to="/">
+                                    to="/">
                             <p>Start</p>
                         </LinkRouter>
                     </button>

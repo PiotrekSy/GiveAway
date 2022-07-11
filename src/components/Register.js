@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import AuthSection from "./AuthSection";
 import RegisterNavbar from "./RegisterNavbar";
 import {Link} from "react-router-dom";
 import {createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
 import "firebase/auth"
 import db, {auth} from "./firebase"
-import {useEffect} from "react";
 import {collection, onSnapshot} from "@firebase/firestore";
+import {UserContext} from "./context/userProvider";
 
 
 const Register = () => {
@@ -15,7 +15,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [passwordError, setPasswordError] = useState("")
-    const [user, setUser] = useState({});
+    const {setUser} = useContext(UserContext)
     const [emailError, setEmailError] = useState("");
 
 
@@ -77,10 +77,9 @@ const Register = () => {
             <AuthSection className="authSection"/>
             <RegisterNavbar className="navbar"/>
             <div className="regForm">
+
                 <div className="regTitle">Załóż konto</div>
                 <div className="regDecoration"></div>
-                <div style={{display: ""}}>{user.email}</div>
-
                 <form className="greyArea" onSubmit={register}>
                     <label className="regLabel" htmlFor="email">Email:</label>
                     <input className="regInput" type="email"

@@ -1,15 +1,15 @@
 import React from "react";
-import Navbar from "./Navbar";
 import AuthSection from "./AuthSection";
 import {Link} from "react-router-dom";
+import RegisterNavbar from "./RegisterNavbar";
 
-const HomeHeader = () => {
+const FormHomeHeader = () => {
     return (
         <div className="homeHeader">
             <div className="leftSide"/>
             <div className="rightSide">
                 <AuthSection className="authSection"/>
-                <Navbar className="navigation"/>
+                <RegisterNavbar className="navigation"/>
                 <div className="basePageMiddleSection">
                     <div className="baseText">
                         Zacznij pomagać!<br/>Oddaj niechciane rzeczy w zaufane ręce
@@ -33,4 +33,4 @@ const HomeHeader = () => {
     )
 }
 
-export default HomeHeader
+export default FormHomeHeader

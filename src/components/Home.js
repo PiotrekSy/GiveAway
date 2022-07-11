@@ -8,6 +8,7 @@ import SimpleSteps from "./SimpleSteps";
 import ButtonToTop from "./ButtonToTop";
 
 const Home = () => {
+
     return (
         <div className="homepage">
             <ButtonToTop id="buttonToTop" className="buttonToTopWrapper"/>
