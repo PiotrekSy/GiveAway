@@ -56,7 +56,7 @@ const Form = () => {
     const [street, setStreet] = useState("")
     const [city, setCity] = useState("")
     const [postalCode, setPostalCode] = useState("")
-    const [PhoneNumber, setPhoneNumber] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
     const [date, setDate] = useState("")
     const [time, setTime] = useState("")
     const [courierMsg, setCourierMsg] = useState("")
@@ -64,28 +64,31 @@ const Form = () => {
     // wysłanie formularza:
     const submitHandle = () => {
 
+        buttonForwardHandle()
+        console.log("submit passed")
     }
+
 
     return (<div id="Form" className="giveAwayForm">
         {(siteNum === 1 || siteNum === 2 || siteNum === 3 || siteNum === 4) && <div className="orangeBelt">
             {siteNum === 1 && <div>
-                <div className="important!"><b>Ważne!</b></div>
-                <p className="important!">Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy
+                <div className="importantInForm"><b>Ważne!</b></div>
+                <p className="importantText">Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy
                     wiedzieć komu najlepiej je przekazać.</p>
             </div>}
             {siteNum === 2 && <div>
-                <div className="important!"><b>Ważne!</b></div>
-                <p className="important!">Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję
+                <div className="importantInForm"><b>Ważne!</b></div>
+                <p className="importantText">Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję
                     jak poprawnie spakować rzeczy znajdziesz TUTAJ.</p>
             </div>}
             {siteNum === 3 && <div>
-                <div className="important!"><b>Ważne!</b></div>
-                <p className="important!">Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w
+                <div className="importantInForm"><b>Ważne!</b></div>
+                <p className="importantText">Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w
                     wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy.</p>
             </div>}
             {siteNum === 4 && <div>
-                <div className="important!"><b>Ważne!</b></div>
-                <p className="important!">Podaj adres oraz termin odbioru rzeczy</p>
+                <div className="importantInForm"><b>Ważne!</b></div>
+                <p className="importantText">Podaj adres oraz termin odbioru rzeczy</p>
             </div>}
         </div>}
         {(siteNum === 1 || siteNum === 2 || siteNum === 3 || siteNum === 4) && <div>Krok :{siteNum}/4</div>}
@@ -114,37 +117,30 @@ const Form = () => {
                                    value="Inne"
                                    onChange={handleRadioChange}/> Inne</label>
                 </div>
-                <div className="formNav">
-                    <button className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>
-                    <button className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>
-                </div>
             </div>}
             {siteNum === 2 && <div className="selectMenuWrapper">
                 <div className="">
                     <p>Liczba 60l worków</p>
-                    <select onChange={handleSelectChange}>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select onChange={handleSelectChange} value="">
+                        <option value="" placeholder={"0"}></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
-                </div>
-                <div className="formNav">
-                    <button className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>
-                    <button className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>
                 </div>
             </div>}
             {siteNum === 3 && <div className="selectMenuLocationWrapper">
                 <div className="locationMenu">
                     <p><b>Lokalizacja:</b></p>
-                    <select onChange={handleLocationSelectChange}>
-                        <option value="" selected>--wybierz--</option>
-                        <option>Poznań</option>
-                        <option>Warszawa</option>
-                        <option>Kraków</option>
-                        <option>Wrocław</option>
-                        <option>Katowice</option>
+                    <select onChange={handleLocationSelectChange} value="">
+                        <option value="" placeholder={"--wybierz"}></option>
+                        <option value="Poznań">Poznań</option>
+                        <option value="Warszawa">Warszawa</option>
+                        <option value="Kraków">Kraków</option>
+                        <option value="Wrocław">Wrocław</option>
+                        <option value="Katowice">Katowice</option>
                     </select>
                 </div>
                 <div className="groupMenu">
@@ -191,10 +187,6 @@ const Form = () => {
                         <input type="text"
                                onChange={e => setLocalizationSpecific(e.target.value)}/>
                     </label>
-                </div>
-                <div className="formNav">
-                    <button className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>
-                    <button className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>
                 </div>
             </div>}
             {siteNum === 4 && <div className="addressMenuLocationWrapper">
@@ -268,14 +260,10 @@ const Form = () => {
                         </div>
                     </div>
                 </div>
-                <div className="formNav">
-                    <button className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>
-                    <button className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>
-                </div>
             </div>}
             {siteNum === 5 && <div className="sumOfAllWrapper">
+                <div><b>Podsumowanie Twojej darowizny</b></div>
                 <div className="sumIconItems">
-                    <div><b>Podsumowanie Twojej darowizny</b></div>
                     <div><p>Oddajesz:</p></div>
                     <div className="sumIconItem">
                         <div className="clothesIcon"/>
@@ -290,35 +278,57 @@ const Form = () => {
                         </div>
                     </div>
                 </div>
-                <div className="">
-
-                </div>
-                <div>
-
-                </div>
-
-
-                <div className="formNav">
-                    <button type="button" className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>
-                    <button type="submit" className="formNavButton" onClick={buttonForwardHandle}>Potwierdzam</button>
+                <div className="sumFormInfo">
+                    <div className="sumLeftFormSide">
+                        <p><b>Adres odbioru:</b></p>
+                        <div className="formInput">
+                            <div>Ulica</div>
+                            <div>{street}</div>
+                        </div>
+                        <div className="FormInput">
+                            <div>Miasto</div>
+                            <div>{city}</div>
+                        </div>
+                        <div className="formInput">
+                            <div>Kod pocztowy</div>
+                            <div>{postalCode}</div>
+                        </div>
+                        <div className="formInput">
+                            <div>Numer telefonu</div>
+                            <div>{phoneNumber}</div>
+                        </div>
+                    </div>
+                    <div className="sumRightFormSide">
+                        <p><b>Termin odbioru:</b></p>
+                        <div className="formInput">
+                            <div>Data</div>
+                            <div>{date}</div>
+                        </div>
+                        <div className="formInput">
+                            <div>Czas</div>
+                            <div>{time}</div>
+                        </div>
+                        <div className="formInput">
+                            <div>Uwagi dla kuriera</div>
+                            <div>{courierMsg}</div>
+                        </div>
+                    </div>
                 </div>
             </div>}
             {siteNum === 6 && <div className="thankingWrapper">
                 <div className="">
 
                 </div>
-                <div className="formNav">
-                    <button className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>
-                    <button className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>
-                </div>
             </div>}
+            <div className="formNav">
+                {(siteNum !== 1 && siteNum !== 6) &&
+                    <button className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>}
+                {(siteNum !== 5 && siteNum !== 6) &&
+                    <button className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>}
+                {(siteNum === 5 && siteNum !== 6) &&
+                    <button type="submit" className="formNavButton">Potwierdzam</button>}
+            </div>
         </form>
-        rzeczy:{itemType}, worków:{bagsNumber},lokacja: {localization},
-        Komu pomóc: {[...helpGroups]}, Dokładna lokalizacja: {localizationSpecific} <br/>
-        Ulica:{street} , Ulica:{city} , Kod pocztowy:{postalCode}, Numer telefonu:{PhoneNumber}, <br/>
-        Data:{date} Godzina: {time},
-        Wiadomość dla kuriera: {courierMsg}
-
     </div>)
 }
 
