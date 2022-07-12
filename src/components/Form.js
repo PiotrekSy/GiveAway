@@ -1,19 +1,17 @@
-import React, {useState} from "react"
-
+import React, {useEffect, useState} from "react"
+import {addDoc, collection} from "@firebase/firestore";
+import {db} from "./firebase";
 
 const Form = () => {
-
     // nawigacja:
     const [siteNum, setSiteNum] = useState(1)
-    const buttonBackHandle = (e) => {
-        e.preventDefault()
+    const buttonBackHandle = () => {
         if (siteNum > 0) {
             setSiteNum(prevState => prevState - 1)
         }
     }
-    const buttonForwardHandle = (e) => {
-        e.preventDefault()
-        if (siteNum <= 4) {
+    const buttonForwardHandle = () => {
+        if (siteNum <= 6) {
             setSiteNum(prevState => prevState + 1)
         }
     }
@@ -31,7 +29,6 @@ const Form = () => {
     }
 
     //  zmiana miasta (SELECT menu):
-
     const [localization, setLocalization] = useState("")
     const handleLocationSelectChange = (event) => {
         setLocalization(event.target.value)
@@ -39,20 +36,18 @@ const Form = () => {
 
     //  grupy do pomocy:
     const [helpGroups, setHelpGroups] = useState(["dzieciom"])
-
     const helpGroupHandler = (e) => {
         if (!helpGroups.includes(e.target.value)) {
             setHelpGroups(helpGroups => [...helpGroups, e.target.value])
-            console.log(helpGroups)
         } else {
             setHelpGroups(array => array.filter(element => element !== e.target.value));
-            console.log(helpGroups)
         }
     }
+
     //dokładna nazwa organizacji do pomocy
     const [localizationSpecific, setLocalizationSpecific] = useState();
 
-    //formularz adresowy:
+    // wysłanie formularza i zbieranie danych do kupy:
     const [street, setStreet] = useState("")
     const [city, setCity] = useState("")
     const [postalCode, setPostalCode] = useState("")
@@ -61,13 +56,91 @@ const Form = () => {
     const [time, setTime] = useState("")
     const [courierMsg, setCourierMsg] = useState("")
 
-    // wysłanie formularza:
-    const submitHandle = () => {
+    const [err, setErr] = useState([])
+    const [messageValidated, setMessageValidated] = useState(false)
 
-        buttonForwardHandle()
-        console.log("submit passed")
+    //walidacja postal kodu
+    const isValidPostalCode = (postCode) => {
+        return /^\d\d-\d\d\d$/.test(postCode)
     }
 
+    //bieżąca validacja formularzy
+    const validate = () => {
+        setErr([])
+        if (itemType === "") {
+            setErr(prevState => [...prevState, "Wybierz co chcesz przekazać na pierwszej stronie formularza"])
+        }
+        if (bagsNumber === "") {
+            setErr(prevState => [...prevState, "Wybierz ilość worków do odebrania przez kuriera na drugiej stronie formularza"])
+        }
+        if (localization === "" && localizationSpecific === "") {
+            setErr(prevState => [...prevState, "Wybierz organizację lub miasto w którym chcesz udzielić pomocy"])
+        }
+        if (helpGroups.length === 0) {
+            setErr(prevState => [...prevState, "Wybierz przynajmniej jedną grupę której chcesz pomóc"])
+        }
+        if (street.length < 2) {
+            setErr(prevState => [...prevState, "Nazwa ulicy musi mieć przynajmniej 2 znaki"])
+        }
+        if (city.length < 2) {
+            setErr(prevState => [...prevState, "Nazwa miasta musi mieć przynajmniej 2 znaki"])
+        }
+        if (!isValidPostalCode(postalCode)) {
+            setErr(prevState => [...prevState, "Kod pocztowy musi mieć format XX-XXX"])
+        }
+        if (phoneNumber.length !== 9) {
+            setErr(prevState => [...prevState, "Długość numeru telefonu musi być równa 9 znakom"])
+        }
+        if (date === "") {
+            setErr(prevState => [...prevState, "Ustaw datę odbioru"])
+        }
+        if (time === "") {
+            setErr(prevState => [...prevState, "Ustaw godzinę odbioru"])
+        }
+    }
+
+    useEffect(() => {
+        if (err !== []
+            && helpGroups !== []
+            && bagsNumber !== ""
+            && itemType !== ""
+            && street !== ""
+            && city !== ""
+            && postalCode !== ""
+            && phoneNumber !== ""
+            && date !== ""
+            && time !== "")
+            setMessageValidated(true)
+    }, [helpGroups, bagsNumber, itemType, err, street, city, postalCode, phoneNumber, date, time])
+
+    const collectionRef = collection(db, "giveAwayRequests")
+
+    const submitHandle = async (e) => {
+        e.preventDefault()
+        setSiteNum(6);
+        if (messageValidated) {
+            await addDoc(collectionRef,
+                {
+                    itemType, bagsNumber, localization, helpGroups, street, city, postalCode, phoneNumber, date, time,
+                }).then(() => {
+                console.log("FORMULARZ ZOSTAŁ WYSŁANY!")
+
+            }).catch(() => {
+                console.log("coś poszło nie tak")
+            })
+            setItemType("")
+            setBagsNumber("")
+            setLocalization("")
+            setHelpGroups(["dzieciom"])
+            setStreet("")
+            setCity("")
+            setPostalCode("")
+            setPhoneNumber("")
+            setDate("")
+            setTime("")
+            setCourierMsg("")
+        }
+    }
 
     return (<div id="Form" className="giveAwayForm">
         {(siteNum === 1 || siteNum === 2 || siteNum === 3 || siteNum === 4) && <div className="orangeBelt">
@@ -92,6 +165,7 @@ const Form = () => {
             </div>}
         </div>}
         {(siteNum === 1 || siteNum === 2 || siteNum === 3 || siteNum === 4) && <div>Krok :{siteNum}/4</div>}
+        <div style={{height: "40px", color: "red"}}>{[...err].join(", ")}</div>
         <form className="formWrapper" onSubmit={submitHandle}>
             {siteNum === 1 && <div className="radioMenuWrapper">
                 <div className="radioMenu">
@@ -121,7 +195,7 @@ const Form = () => {
             {siteNum === 2 && <div className="selectMenuWrapper">
                 <div className="">
                     <p>Liczba 60l worków</p>
-                    <select onChange={handleSelectChange} value="">
+                    <select onChange={handleSelectChange} defaultValue="">
                         <option value="" placeholder={"0"}></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -134,8 +208,8 @@ const Form = () => {
             {siteNum === 3 && <div className="selectMenuLocationWrapper">
                 <div className="locationMenu">
                     <p><b>Lokalizacja:</b></p>
-                    <select onChange={handleLocationSelectChange} value="">
-                        <option value="" placeholder={"--wybierz"}></option>
+                    <select onChange={handleLocationSelectChange} defaultValue="">
+                        <option value=""></option>
                         <option value="Poznań">Poznań</option>
                         <option value="Warszawa">Warszawa</option>
                         <option value="Kraków">Kraków</option>
@@ -268,13 +342,13 @@ const Form = () => {
                     <div className="sumIconItem">
                         <div className="clothesIcon"/>
                         {(bagsNumber !== "" && itemType !== "" && helpGroups.length > 0) &&
-                            <div>{bagsNumber} worki, {itemType}, {[...helpGroups]}</div>}
+                            <div>{bagsNumber} worki, {itemType}, {[...helpGroups.join(", ")]}</div>}
                     </div>
                     <div className="sumIconItem">
                         <div className="roundIcon"/>
                         <div> {localizationSpecific !== "" ?
-                            (localization !== "" ? `dla lokalizacji: ${localization}` : null) :
-                            `dla organizacji: ${localizationSpecific}`}
+                            `dla organizacji: ${localizationSpecific}` :
+                            (localization !== "" ? `dla lokalizacji: ${localization}` : null)}
                         </div>
                     </div>
                 </div>
@@ -315,17 +389,26 @@ const Form = () => {
                     </div>
                 </div>
             </div>}
-            {siteNum === 6 && <div className="thankingWrapper">
-                <div className="">
-
+            {siteNum === 6 && <div className="thanksWrapper">
+                <div>Dziękujemy za przesłanie formularza<br/>
+                    Na maila prześlemy wszelkie<br/>
+                    informacje o odbiorze
                 </div>
+                <div className="decoration">Ornament</div>
             </div>}
             <div className="formNav">
                 {(siteNum !== 1 && siteNum !== 6) &&
-                    <button className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>}
-                {(siteNum !== 5 && siteNum !== 6) &&
-                    <button className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>}
-                {(siteNum === 5 && siteNum !== 6) &&
+                    <button type="button" className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>}
+                {(siteNum === 4) &&
+                    <button type="button" className="formNavButton" onClick={() => {
+                        validate()
+                        if (messageValidated) {
+                            setSiteNum(5)
+                        }
+                    }}>Dalej</button>}
+                {(siteNum !== 4 && siteNum !== 5 && siteNum !== 6) &&
+                    <button type="button" className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>}
+                {siteNum === 5 &&
                     <button type="submit" className="formNavButton">Potwierdzam</button>}
             </div>
         </form>
