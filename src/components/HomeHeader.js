@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import Navbar from "./Navbar";
 import AuthSection from "./AuthSection";
 import {Link} from "react-router-dom";
+import {UserContext} from "./context/userProvider";
+import {HashLink} from 'react-router-hash-link';
+
 
 const HomeHeader = () => {
+    const {user} = useContext(UserContext);
     return (
         <div className="homeHeader">
             <div className="leftSide"/>
@@ -17,9 +21,9 @@ const HomeHeader = () => {
                     <div className="basePageDecoration"/>
                     <div className="baseButtons">
                         <div className="mainPageButton">
-                            <Link className="mainPageButtonRange" to='/Login'>
+                            <HashLink className="mainPageButtonRange" to={user === null ? '/Login' : '/GiveAwayForm/#Form'}>
                                 <p className="mainButtonText">ODDAJ RZECZY</p>
-                            </Link>
+                            </HashLink>
                         </div>
                         <div className="mainPageButton">
                             <Link className="mainPageButtonRange" to='/Login'>

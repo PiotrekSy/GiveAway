@@ -100,17 +100,7 @@ const Form = () => {
     }
 
     useEffect(() => {
-        if (err !== []
-            && helpGroups !== []
-            && bagsNumber !== ""
-            && itemType !== ""
-            && street !== ""
-            && city !== ""
-            && postalCode !== ""
-            && phoneNumber !== ""
-            && date !== ""
-            && time !== "")
-            setMessageValidated(true)
+        if (err !== [] && helpGroups !== [] && bagsNumber !== "" && itemType !== "" && street !== "" && city !== "" && postalCode !== "" && phoneNumber !== "" && date !== "" && time !== "") setMessageValidated(true)
     }, [helpGroups, bagsNumber, itemType, err, street, city, postalCode, phoneNumber, date, time])
 
     const collectionRef = collection(db, "giveAwayRequests")
@@ -119,10 +109,9 @@ const Form = () => {
         e.preventDefault()
         setSiteNum(6);
         if (messageValidated) {
-            await addDoc(collectionRef,
-                {
-                    itemType, bagsNumber, localization, helpGroups, street, city, postalCode, phoneNumber, date, time,
-                }).then(() => {
+            await addDoc(collectionRef, {
+                itemType, bagsNumber, localization, helpGroups, street, city, postalCode, phoneNumber, date, time,
+            }).then(() => {
                 console.log("FORMULARZ ZOSTAŁ WYSŁANY!")
 
             }).catch(() => {
@@ -145,71 +134,95 @@ const Form = () => {
     return (<div id="Form" className="giveAwayForm">
         {(siteNum === 1 || siteNum === 2 || siteNum === 3 || siteNum === 4) && <div className="orangeBelt">
             {siteNum === 1 && <div>
-                <div className="importantInForm"><b>Ważne!</b></div>
-                <p className="importantText">Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy
+                <div className="orangeBeltTitle"><b>Ważne!</b></div>
+                <p className="orangeBeltText">Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy
                     wiedzieć komu najlepiej je przekazać.</p>
             </div>}
             {siteNum === 2 && <div>
-                <div className="importantInForm"><b>Ważne!</b></div>
-                <p className="importantText">Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję
+                <div className="orangeBeltTitle"><b>Ważne!</b></div>
+                <p className="orangeBeltText">Wszystkie rzeczy do oddania zapakuj w 60l worki. Dokładną instrukcję
                     jak poprawnie spakować rzeczy znajdziesz TUTAJ.</p>
             </div>}
             {siteNum === 3 && <div>
-                <div className="importantInForm"><b>Ważne!</b></div>
-                <p className="importantText">Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w
+                <div className="orangeBeltTitle"><b>Ważne!</b></div>
+                <p className="orangeBeltText">Jeśli wiesz komu chcesz pomóc, możesz wpisać nazwę tej organizacji w
                     wyszukiwarce. Możesz też filtrować organizacje po ich lokalizacji bądź celu ich pomocy.</p>
             </div>}
             {siteNum === 4 && <div>
-                <div className="importantInForm"><b>Ważne!</b></div>
-                <p className="importantText">Podaj adres oraz termin odbioru rzeczy</p>
+                <div className="orangeBeltTitle"><b>Ważne!</b></div>
+                <p className="orangeBeltText">Podaj adres oraz termin odbioru rzeczy</p>
             </div>}
         </div>}
-        {(siteNum === 1 || siteNum === 2 || siteNum === 3 || siteNum === 4) && <div>Krok :{siteNum}/4</div>}
+        {(siteNum === 1 || siteNum === 2 || siteNum === 3 || siteNum === 4) &&
+            <div className="formPageCount">Krok :{siteNum}/4</div>}
         <div style={{height: "40px", color: "red"}}>{[...err].join(", ")}</div>
         <form className="formWrapper" onSubmit={submitHandle}>
             {siteNum === 1 && <div className="radioMenuWrapper">
+                <div className="radioMenuTitle"><b>Zaznacz co chcesz oddać:</b></div>
                 <div className="radioMenu">
-                    <label> <input type="radio"
-                                   name="typeOFItems"
-                                   value="Ubrania, które nadają się do ponownego użycia"
-                                   onChange={handleRadioChange}/>
-                        ubrania, które nadają się do ponownego użycia</label>
-                    <label> <input type="radio"
-                                   name="typeOFItems"
-                                   value="ubrania, do wyrzucenia"
-                                   onChange={handleRadioChange}/> ubrania, do wyrzucenia</label>
-                    <label> <input type="radio"
-                                   name="typeOFItems"
-                                   value="zabawki"
-                                   onChange={handleRadioChange}/> zabawki</label>
-                    <label> <input type="radio"
-                                   name="typeOFItems"
-                                   value="książki"
-                                   onChange={handleRadioChange}/> książki</label>
-                    <label> <input type="radio"
-                                   name="typeOFItems"
-                                   value="Inne"
-                                   onChange={handleRadioChange}/> Inne</label>
+                    <div className="radioMenuItem">
+                        <input className="radioMenuText"
+                               type="radio"
+                               name="typeOFItems"
+                               value="Ubrania, które nadają się do ponownego użycia"
+                               onChange={handleRadioChange}/>
+                        <div>ubrania, które nadają się do ponownego użycia</div>
+                    </div>
+                    <div className="radioMenuItem">
+                        <input className="radioMenuText"
+                               type="radio"
+                               name="typeOFItems"
+                               value="ubrania, do wyrzucenia"
+                               onChange={handleRadioChange}/>
+                        <div>ubrania, do wyrzucenia</div>
+                    </div>
+                    <div className="radioMenuItem">
+                        <input className="radioMenuText"
+                               type="radio"
+                               name="typeOFItems"
+                               value="zabawki"
+                               onChange={handleRadioChange}/>
+                        <div>zabawki</div>
+                    </div>
+                    <div className="radioMenuItem">
+                        <input className="radioMenuText"
+                               type="radio"
+                               name="typeOFItems"
+                               value="książki"
+                               onChange={handleRadioChange}/>
+                        <div>książki</div>
+                    </div>
+                    <div className="radioMenuItem">
+                        <input className="radioMenuText"
+                               type="radio"
+                               name="typeOFItems"
+                               value="Inne"
+                               onChange={handleRadioChange}/>
+                        <div>Inne</div>
+                    </div>
                 </div>
             </div>}
             {siteNum === 2 && <div className="selectMenuWrapper">
                 <div className="">
-                    <p>Liczba 60l worków</p>
-                    <select onChange={handleSelectChange} defaultValue="">
-                        <option value="" placeholder={"0"}></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    <div className="radioMenuTitle"><b>Podaj liczbę 60l worków, w które spakowałeś/aś rzeczy:</b></div>
+                    <div className="selectMenu">
+                        <p>Liczba 60l worków:</p>
+                        <select className="selectMenuWindow" onChange={handleSelectChange} defaultValue="">
+                            <option value="" hidden>--wybierz--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
                 </div>
             </div>}
             {siteNum === 3 && <div className="selectMenuLocationWrapper">
                 <div className="locationMenu">
-                    <p><b>Lokalizacja:</b></p>
-                    <select onChange={handleLocationSelectChange} defaultValue="">
-                        <option value=""></option>
+                    <div className="locationMenuTitle"><b>Lokalizacja:</b></div>
+                    <select className="locationSelectMenuWindow" onChange={handleLocationSelectChange} defaultValue="">
+                        <option value="" hidden>--wybierz--</option>
                         <option value="Poznań">Poznań</option>
                         <option value="Warszawa">Warszawa</option>
                         <option value="Kraków">Kraków</option>
@@ -217,43 +230,43 @@ const Form = () => {
                         <option value="Katowice">Katowice</option>
                     </select>
                 </div>
+                <div className="groupMenuTitle"><b>Komu chcesz pomóc?</b></div>
                 <div className="groupMenu">
-                    <p><b>Komu chcesz pomóc?</b></p>
-                    <label>
+                    <div className="groupMenuItem">
                         <input type="checkbox"
                                value={"dzieciom"}
                                defaultChecked={true}
                                onClick={helpGroupHandler}/>
-                        dzieciom
-                    </label>
-                    <label>
+                        <div className="groupInputText">dzieciom</div>
+                    </div>
+                    <div className="groupMenuItem">
                         <input type="checkbox"
                                value={"samotnym matkom"}
                                defaultChecked={false}
                                onClick={helpGroupHandler}/>
-                        samotnym matkom
-                    </label>
-                    <label>
+                        <div className="groupInputText">samotnym matkom</div>
+                    </div>
+                    <div className="groupMenuItem">
                         <input type="checkbox"
                                value={"bezdomnym"}
                                defaultChecked={false}
                                onClick={helpGroupHandler}/>
-                        bezdomnym
-                    </label>
-                    <label>
+                        <div className="groupInputText">bezdomnym</div>
+                    </div>
+                    <div className="groupMenuItem">
                         <input type="checkbox"
                                value={"niepełnosprawnym"}
                                defaultChecked={false}
                                onClick={helpGroupHandler}/>
-                        niepełnosprawnym
-                    </label>
-                    <label>
+                        <div className="groupInputText">niepełnosprawnym</div>
+                    </div>
+                    <div className="groupMenuItem">
                         <input type="checkbox"
                                value={"osobom starszym"}
                                defaultChecked={false}
                                onClick={helpGroupHandler}/>
-                        osobom starszym
-                    </label>
+                        <div className="groupInputText">osobom starszym</div>
+                    </div>
                 </div>
                 <div className="organizationInput">
                     <label>
@@ -346,9 +359,7 @@ const Form = () => {
                     </div>
                     <div className="sumIconItem">
                         <div className="roundIcon"/>
-                        <div> {localizationSpecific !== "" ?
-                            `dla organizacji: ${localizationSpecific}` :
-                            (localization !== "" ? `dla lokalizacji: ${localization}` : null)}
+                        <div> {localizationSpecific !== "" ? `dla organizacji: ${localizationSpecific}` : (localization !== "" ? `dla lokalizacji: ${localization}` : null)}
                         </div>
                     </div>
                 </div>
@@ -399,18 +410,18 @@ const Form = () => {
             <div className="formNav">
                 {(siteNum !== 1 && siteNum !== 6) &&
                     <button type="button" className="formNavButton" onClick={buttonBackHandle}>Wstecz</button>}
-                {(siteNum === 4) &&
-                    <button type="button" className="formNavButton" onClick={() => {
-                        validate()
-                        if (messageValidated) {
-                            setSiteNum(5)
-                        }
-                    }}>Dalej</button>}
+                {(siteNum === 4) && <button type="button" className="formNavButton" onClick={() => {
+                    validate()
+                    if (messageValidated) {
+                        setSiteNum(5)
+                    }
+                }}>Dalej</button>}
                 {(siteNum !== 4 && siteNum !== 5 && siteNum !== 6) &&
-                    <button type="button" className="formNavButton" onClick={buttonForwardHandle}>Dalej</button>}
-                {siteNum === 5 &&
-                    <button type="submit" className="formNavButton">Potwierdzam</button>}
+                    <button type="button" className="formNavButton"
+                            onClick={buttonForwardHandle}>Dalej</button>}
+                {siteNum === 5 && <button type="submit" className="formNavButton">Potwierdzam</button>}
             </div>
+
         </form>
     </div>)
 }

@@ -1,9 +1,13 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useContext} from "react";
+import {UserContext} from "./context/userProvider";
+import {HashLink} from 'react-router-hash-link';
+
 
 const SimpleSteps = () => {
-    return (
-        <div className="simpleSteps">
+
+    const {user} = useContext(UserContext);
+
+    return (<div className="simpleSteps">
             <h1 className="simpleTitle">Wystarczą 4 proste kroki</h1>
             <div className="simpleDecoration"/>
             <div className="simpleStepsItems">
@@ -42,13 +46,12 @@ const SimpleSteps = () => {
             </div>
             <div className="simpleButtons">
                 <div className="simpleButton">
-                    <Link className="simpleButtonRange" to='/Login'>
+                    <HashLink className="mainPageButtonRange" to={user === null ? '/Login' : '/GiveAwayForm/#Form'}>
                         <p className="simpleButtonText">ODDAJ RZECZY</p>
-                    </Link>
+                    </HashLink>
                 </div>
             </div>
-        </div>
-    )
+        </div>)
 }
 
 export default SimpleSteps
