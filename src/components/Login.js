@@ -47,7 +47,6 @@ const Login = () => {
         e.preventDefault()
         try {
             await signInWithEmailAndPassword(auth, email, password)
-            onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
         } catch {
             console.log("Failed to log in!")
         }

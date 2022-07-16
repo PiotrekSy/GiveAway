@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './scss/main.scss';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from "./components/Home"
@@ -7,11 +7,25 @@ import Register from "./components/Register";
 import Logout from "./components/Logout";
 import GiveAwayForm from "./components/GiveAwayForm";
 import {UserContext} from "./components/context/userProvider";
+import {getAuth, onAuthStateChanged} from "firebase/auth";
 
 
 function App() {
 
     const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        const auth = getAuth();
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user)
+            } else {
+               setUser(null)
+            }
+        });
+
+        return unsubscribe
+    }, [])
 
     return (
         <Router>

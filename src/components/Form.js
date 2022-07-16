@@ -2,13 +2,19 @@ import React, {useEffect, useState} from "react"
 import {addDoc, collection} from "@firebase/firestore";
 import {db} from "./firebase";
 
+const checkValues = (mode, state) => {
+    return
+
+}
+
+
 const Form = () => {
     // nawigacja:
+
     const [siteNum, setSiteNum] = useState(1)
+
     const buttonBackHandle = () => {
-        if (siteNum > 0) {
-            setSiteNum(prevState => prevState - 1)
-        }
+            setSiteNum(prevState => prevState > 0 ? prevState - 1 : 0)
     }
     const buttonForwardHandle = () => {
         if (siteNum <= 6) {
@@ -269,18 +275,21 @@ const Form = () => {
                     </div>
                 </div>
                 <div className="organizationInput">
-                    <label>
-                        <b>Wpisz nazwę konretnej organizacji (opcjonalnie):</b>
-                        <input type="text"
+                    <div className="organizationInputWrapper">
+                        <div className="organizationInputText">
+                            <b>Wpisz nazwę konretnej organizacji (opcjonalnie):</b>
+                        </div>
+                        <input className="organizationInput"
+                               type="text"
                                onChange={e => setLocalizationSpecific(e.target.value)}/>
-                    </label>
+                    </div>
                 </div>
             </div>}
             {siteNum === 4 && <div className="addressMenuLocationWrapper">
-                <div className="">
+                <div className="wholeform">
                     <div className="">
                         <div className="leftFormSide">
-                            <p><b>Adres odbioru:</b></p>
+                            <div><b>Adres odbioru:</b></div>
                             <div className="formInput">
                                 <div>Ulica</div>
                                 <input type="text"
@@ -421,7 +430,6 @@ const Form = () => {
                             onClick={buttonForwardHandle}>Dalej</button>}
                 {siteNum === 5 && <button type="submit" className="formNavButton">Potwierdzam</button>}
             </div>
-
         </form>
     </div>)
 }
