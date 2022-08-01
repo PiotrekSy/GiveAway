@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react"
-import { addDoc, collection } from "@firebase/firestore";
-import { db } from "./firebase";
+import React, {useEffect, useState} from "react"
+import {addDoc, collection} from "@firebase/firestore";
+import {db} from "./firebase";
 
 const Form = () => {
     // nawigacja:
@@ -155,49 +155,49 @@ const Form = () => {
         </div>}
         {(siteNum === 1 || siteNum === 2 || siteNum === 3 || siteNum === 4) &&
             <div className="formPageCount">Krok :{siteNum}/4</div>}
-        <div style={{ height: "40px", color: "red" }}>{[...err].join(", ")}</div>
+        <div className="errorMessages">{[...err].join(" , ")}</div>
         <form className="formWrapper" onSubmit={submitHandle}>
             {siteNum === 1 && <div className="radioMenuWrapper">
                 <div className="radioMenuTitle"><b>Zaznacz co chcesz oddać:</b></div>
                 <div className="radioMenu">
                     <div className="radioMenuItem">
                         <input className="radioMenuText"
-                            type="radio"
-                            name="typeOFItems"
-                            value="Ubrania, które nadają się do ponownego użycia"
-                            onChange={handleRadioChange} />
+                               type="radio"
+                               name="typeOFItems"
+                               value="Ubrania, które nadają się do ponownego użycia"
+                               onChange={handleRadioChange}/>
                         <div>ubrania, które nadają się do ponownego użycia</div>
                     </div>
                     <div className="radioMenuItem">
                         <input className="radioMenuText"
-                            type="radio"
-                            name="typeOFItems"
-                            value="ubrania, do wyrzucenia"
-                            onChange={handleRadioChange} />
+                               type="radio"
+                               name="typeOFItems"
+                               value="ubrania, do wyrzucenia"
+                               onChange={handleRadioChange}/>
                         <div>ubrania, do wyrzucenia</div>
                     </div>
                     <div className="radioMenuItem">
                         <input className="radioMenuText"
-                            type="radio"
-                            name="typeOFItems"
-                            value="zabawki"
-                            onChange={handleRadioChange} />
+                               type="radio"
+                               name="typeOFItems"
+                               value="zabawki"
+                               onChange={handleRadioChange}/>
                         <div>zabawki</div>
                     </div>
                     <div className="radioMenuItem">
                         <input className="radioMenuText"
-                            type="radio"
-                            name="typeOFItems"
-                            value="książki"
-                            onChange={handleRadioChange} />
+                               type="radio"
+                               name="typeOFItems"
+                               value="książki"
+                               onChange={handleRadioChange}/>
                         <div>książki</div>
                     </div>
                     <div className="radioMenuItem">
                         <input className="radioMenuText"
-                            type="radio"
-                            name="typeOFItems"
-                            value="Inne"
-                            onChange={handleRadioChange} />
+                               type="radio"
+                               name="typeOFItems"
+                               value="Inne"
+                               onChange={handleRadioChange}/>
                         <div>Inne</div>
                     </div>
                 </div>
@@ -234,37 +234,37 @@ const Form = () => {
                 <div className="groupMenu">
                     <div className="groupMenuItem">
                         <input type="checkbox"
-                            value={"dzieciom"}
-                            defaultChecked={true}
-                            onClick={helpGroupHandler} />
+                               value={"dzieciom"}
+                               defaultChecked={true}
+                               onClick={helpGroupHandler}/>
                         <div className="groupInputText">dzieciom</div>
                     </div>
                     <div className="groupMenuItem">
                         <input type="checkbox"
-                            value={"samotnym matkom"}
-                            defaultChecked={false}
-                            onClick={helpGroupHandler} />
+                               value={"samotnym matkom"}
+                               defaultChecked={false}
+                               onClick={helpGroupHandler}/>
                         <div className="groupInputText">samotnym matkom</div>
                     </div>
                     <div className="groupMenuItem">
                         <input type="checkbox"
-                            value={"bezdomnym"}
-                            defaultChecked={false}
-                            onClick={helpGroupHandler} />
+                               value={"bezdomnym"}
+                               defaultChecked={false}
+                               onClick={helpGroupHandler}/>
                         <div className="groupInputText">bezdomnym</div>
                     </div>
                     <div className="groupMenuItem">
                         <input type="checkbox"
-                            value={"niepełnosprawnym"}
-                            defaultChecked={false}
-                            onClick={helpGroupHandler} />
+                               value={"niepełnosprawnym"}
+                               defaultChecked={false}
+                               onClick={helpGroupHandler}/>
                         <div className="groupInputText">niepełnosprawnym</div>
                     </div>
                     <div className="groupMenuItem">
                         <input type="checkbox"
-                            value={"osobom starszym"}
-                            defaultChecked={false}
-                            onClick={helpGroupHandler} />
+                               value={"osobom starszym"}
+                               defaultChecked={false}
+                               onClick={helpGroupHandler}/>
                         <div className="groupInputText">osobom starszym</div>
                     </div>
                 </div>
@@ -274,95 +274,99 @@ const Form = () => {
                             <b>Wpisz nazwę konretnej organizacji (opcjonalnie):</b>
                         </div>
                         <input className="organizationInput"
-                            type="text"
-                            onChange={e => setLocalizationSpecific(e.target.value)} />
+                               type="text"
+                               onChange={e => setLocalizationSpecific(e.target.value)}/>
                     </div>
                 </div>
             </div>}
             {siteNum === 4 && <div className="addressMenuLocationWrapper">
                 <div className="wholeform">
-                    <div className="">
+                    <div className="addressForm">
                         <div className="leftFormSide">
-                            <div><b>Adres odbioru:</b></div>
+                            <div className="locationMenuHeader"><b>Adres odbioru:</b></div>
                             <div className="formInput">
                                 <div>Ulica</div>
-                                <input type="text"
-                                    placeholder={"conajmniej 2 znaki"}
-                                    onChange={e => {
-                                        e.preventDefault()
-                                        setStreet(e.target.value)
-                                    }} />
+                                <input className="locationMenuInput" type="text"
+                                       placeholder={"conajmniej 2 znaki"}
+                                       onChange={e => {
+                                           e.preventDefault()
+                                           setStreet(e.target.value)
+                                       }}/>
                             </div>
                             <div className="formInput">
                                 <div>Miasto</div>
-                                <input type="text"
-                                    placeholder={"conajmniej 2 znaki"}
-                                    onChange={e => {
-                                        e.preventDefault()
-                                        setCity(e.target.value)
-                                    }} />
+                                <input className="locationMenuInput" type="text"
+                                       placeholder={"conajmniej 2 znaki"}
+                                       onChange={e => {
+                                           e.preventDefault()
+                                           setCity(e.target.value)
+                                       }}/>
                             </div>
                             <div className="formInput">
-                                <div>Kod pocztowy</div>
-                                <input type="text"
-                                    placeholder={"xx=xxx"}
-                                    onChange={e => {
-                                        e.preventDefault()
-                                        setPostalCode(e.target.value)
-                                    }} />
+                                <div>Kod <br/>pocztowy</div>
+                                <input className="locationMenuInput" type="text"
+                                       placeholder={"xx=xxx"}
+                                       onChange={e => {
+                                           e.preventDefault()
+                                           setPostalCode(e.target.value)
+                                       }}/>
                             </div>
                             <div className="formInput">
                                 <div>Numer telefonu</div>
-                                <input type="number"
-                                    placeholder={"komórkowy - 9 znaków"}
-                                    onChange={e => {
-                                        e.preventDefault()
-                                        setPhoneNumber(e.target.value)
-                                    }}
+                                <input className="locationMenuInput" type="number"
+                                       placeholder={"komórkowy - 9 znaków"}
+                                       onChange={e => {
+                                           e.preventDefault()
+                                           setPhoneNumber(e.target.value)
+                                       }}
                                 />
                             </div>
                         </div>
                         <div className="rightFormSide">
-                            <p><b>Termin odbioru:</b></p>
+                            <div className="locationMenuHeader"><b>Termin odbioru:</b></div>
                             <div className="formInput">
                                 <div>Data</div>
-                                <input type="date"
-                                    onChange={e => {
-                                        e.preventDefault()
-                                        setDate(e.target.value)
-                                    }} />
+                                <input className="locationMenuInput" type="date"
+                                       onChange={e => {
+                                           e.preventDefault()
+                                           setDate(e.target.value)
+                                       }}/>
                             </div>
                             <div className="formInput">
                                 <div>Czas</div>
-                                <input type="time"
-                                    onChange={e => {
-                                        e.preventDefault()
-                                        setTime(e.target.value)
-                                    }} />
+                                <input className="locationMenuInput" type="time"
+                                       onChange={e => {
+                                           e.preventDefault()
+                                           setTime(e.target.value)
+                                       }}/>
                             </div>
                             <div className="formInput">
                                 <div>Uwagi dla kuriera</div>
-                                <textarea onChange={e => {
-                                    e.preventDefault()
-                                    setCourierMsg(e.target.value)
-                                }} />
+                                <div>
+                                    <textarea className="locationMenuTextarea"
+                                              onChange={e => {
+                                                  e.preventDefault()
+                                                  setCourierMsg(e.target.value)
+                                              }}/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>}
             {siteNum === 5 && <div className="sumOfAllWrapper">
-                <div><b>Podsumowanie Twojej darowizny</b></div>
+                <div className="sumUpTitle"><b>Podsumowanie Twojej darowizny</b></div>
                 <div className="sumIconItems">
                     <div><p>Oddajesz:</p></div>
                     <div className="sumIconItem">
-                        <div className="clothesIcon" />
+                        <div className="clothesIcon"/>
                         {(bagsNumber !== "" && itemType !== "" && helpGroups.length > 0) &&
                             <div>{bagsNumber} worki, {itemType}, {[...helpGroups.join(", ")]}</div>}
                     </div>
                     <div className="sumIconItem">
-                        <div className="roundIcon" />
-                        <div> {localizationSpecific !== "" ? `dla organizacji: ${localizationSpecific}` : (localization !== "" ? `dla lokalizacji: ${localization}` : null)}
+                        <div className="roundIcon"/>
+                        <div> {localizationSpecific !== "" ? `dla lokalizacji: ${localization}` :
+                            (localization !== "" ? `dla organizacji: ${localizationSpecific}` : null)}
                         </div>
                     </div>
                 </div>
@@ -404,8 +408,8 @@ const Form = () => {
                 </div>
             </div>}
             {siteNum === 6 && <div className="thanksWrapper">
-                <div>Dziękujemy za przesłanie formularza<br />
-                    Na maila prześlemy wszelkie<br />
+                <div>Dziękujemy za przesłanie formularza<br/>
+                    Na maila prześlemy wszelkie<br/>
                     informacje o odbiorze
                 </div>
                 <div className="decoration">Ornament</div>
@@ -421,7 +425,7 @@ const Form = () => {
                 }}>Dalej</button>}
                 {(siteNum !== 4 && siteNum !== 5 && siteNum !== 6) &&
                     <button type="button" className="formNavButton"
-                        onClick={buttonForwardHandle}>Dalej</button>}
+                            onClick={buttonForwardHandle}>Dalej</button>}
                 {siteNum === 5 && <button type="submit" className="formNavButton">Potwierdzam</button>}
             </div>
         </form>

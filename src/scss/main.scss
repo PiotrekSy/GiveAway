@@ -416,8 +416,7 @@ $baseHeight: 100vh;
     .expandLessIcon {
       height: 100%;
       width: 100%;
-      background: url("../../assets/expand_less_FILL0_wght400_GRAD0_opsz48.svg")
-        no-repeat center;
+      background: url("../../assets/expand_less_FILL0_wght400_GRAD0_opsz48.svg") no-repeat center;
     }
   }
 
@@ -427,8 +426,7 @@ $baseHeight: 100vh;
 
   .whatsUp {
     height: 30vh;
-    background: transparent url("../../assets/3 Columns Background.png") 0 0
-      padding-box;
+    background: transparent url("../../assets/3 Columns Background.png") 0 0 padding-box;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -1461,6 +1459,15 @@ $baseHeight: 100vh;
     }
   }
 
+  .errorMessages {
+    color: red;
+    width: 80%;
+    height: 100px;
+    position: absolute;
+    bottom: 40px;
+    left: 200px;
+  }
+
   .formPageCount {
     padding: 50px 0 0 150px;
   }
@@ -1628,17 +1635,87 @@ $baseHeight: 100vh;
   }
 
   .addressMenuLocationWrapper {
-
     padding: 0 0 0 150px;
     height: 56vh;
+    width: 1000px;
 
-    .leftFormSide {
 
-    }
+    .addressForm {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
-    .rightFormSide {
+      .leftFormSide {
+        width: 450px;
+
+        .locationMenuHeader {
+          margin-bottom: 50px;
+        }
+
+        .formInput {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin: 25px 0 25px 0;
+          align-items: center;
+
+
+          .locationMenuInput {
+            height: 50px;
+            width: 280px;
+            background: transparent;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            border: 1px solid black;
+          }
+        }
+      }
+
+      .rightFormSide {
+        width: 450px;
+
+        .locationMenuHeader {
+
+          margin-bottom: 50px;
+        }
+
+        .formInput {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin: 25px 0 25px 0;
+          align-items: center;
+
+          .locationMenuInput {
+            height: 50px;
+            width: 280px;
+            background: transparent;
+          }
+
+          .locationMenuTextarea {
+            width: 280px;
+            height: 120px;
+            background: transparent;
+            resize: none;
+          }
+        }
+      }
     }
   }
+
+  .sumOfAllWrapper {
+    padding: 100px 0 0 150px;
+    height: 56vh;
+    width: 1000px;
+
+    .sumUpTitle {
+      font-size: 40px;
+
+    }
+
+
+  }
+
 
   .formNav {
     position: absolute;
