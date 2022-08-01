@@ -361,7 +361,8 @@ const Form = () => {
                     <div className="sumIconItem">
                         <div className="clothesIcon"/>
                         {(bagsNumber !== "" && itemType !== "" && helpGroups.length > 0) &&
-                            <div>{bagsNumber} worki, {itemType}, {[...helpGroups.join(", ")]}</div>}
+                            <div>{bagsNumber} {bagsNumber === "1" ? 'worek' : (bagsNumber >= "5" ? 'worków' : "worki")},
+                                {itemType}, {[...helpGroups.join(", ")]}</div>}
                     </div>
                     <div className="sumIconItem">
                         <div className="roundIcon"/>
@@ -377,7 +378,7 @@ const Form = () => {
                             <div>Ulica</div>
                             <div>{street}</div>
                         </div>
-                        <div className="FormInput">
+                        <div className="formInput">
                             <div>Miasto</div>
                             <div>{city}</div>
                         </div>
@@ -397,22 +398,22 @@ const Form = () => {
                             <div>{date}</div>
                         </div>
                         <div className="formInput">
-                            <div>Czas</div>
+                            <div>Godzina</div>
                             <div>{time}</div>
                         </div>
-                        <div className="formInput">
-                            <div>Uwagi dla kuriera</div>
+                        <div className="formInputLast">
+                            <div>Uwagi dla kuriera<br/></div>
                             <div>{courierMsg}</div>
                         </div>
                     </div>
                 </div>
             </div>}
             {siteNum === 6 && <div className="thanksWrapper">
-                <div>Dziękujemy za przesłanie formularza<br/>
+                <div className="sumUpThanksText">Dziękujemy za przesłanie formularza<br/>
                     Na maila prześlemy wszelkie<br/>
-                    informacje o odbiorze
+                    informacje o odbiorze.
                 </div>
-                <div className="decoration">Ornament</div>
+                <div className="decoration"></div>
             </div>}
             <div className="formNav">
                 {(siteNum !== 1 && siteNum !== 6) &&

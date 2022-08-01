@@ -7,10 +7,8 @@ const About = () => {
                 <span className="aboutTitle">O nas</span>
                 <div className="aboutDecoration"/>
                 <span className="aboutDescription">
-               Nori grape silver beet broccoli kombu beet
-                greens fava bean potato quandong celery.
-                Bunya nuts black-eyed pea prairie turnip
-                leek lentil turnip greens parsnip.
+     Wyręczamy was w ogrganizacji pomocy potrzebującym. Robiąc to pro-bono i pamiętając że "karma wraca"
+            jesteśmy dumni ze swojej działalności. Zapraszamy do współpracy i czynienia wspólnego dobra.
                 </span>
                 <div className="aboutSignature"/>
             </div>

@@ -1709,13 +1709,88 @@ $baseHeight: 100vh;
     width: 1000px;
 
     .sumUpTitle {
-      font-size: 40px;
+      font-size: 30px;
+    }
+
+    .sumIconItems {
+      .sumIconItem {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .clothesIcon {
+          height: 100px;
+          width: 200px;
+          background: url("../../assets/Icon-1.svg") no-repeat center;
+        }
+
+        .roundIcon {
+          height: 100px;
+          width: 110px;
+          background: url("../../assets/Icon-4.svg") no-repeat center;
+        }
+      }
+    }
+
+    .sumFormInfo {
+      display: flex;
+      flex-direction: row;
+
+
+      .sumLeftFormSide {
+        width: 450px;
+
+        .formInput {
+          height: 100px;
+
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 400px;
+        }
+      }
+
+      .sumRightFormSide {
+        width: 450px;
+
+        .formInput {
+          height: 120px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 400px;
+        }
+
+        .formInputLast {
+
+        }
+      }
+    }
+  }
+
+  .thanksWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+
+    .sumUpThanksText {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 50px;
 
     }
 
+    .decoration {
+      width: 20%;
+      height: 4%;
+      background: url("../../assets/Decoration.svg") no-repeat center;
+      background-size: cover;
+    }
 
   }
-
 
   .formNav {
     position: absolute;

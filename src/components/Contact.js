@@ -139,7 +139,7 @@ const Contact = () => {
                                   handleMessageValidation()
                               }}
                               minLength="120"
-                              placeholder="Lorem ipsum dolor sit amet, facere laborum nam necessitatibus quas quod recusandae repudiandae sapiente veritatis. Aliquam consequatur esse facere iste laboriosam praesentium ut vitae. Id! Dolores ex,facere laborum nam necessitatibus quas quod recusandae repudiandae sapiente veritatis. "/>
+                    />
                     <div className="errorMessage"><b>{messageError}</b></div>
                 </div>
                 <div className="formButtonWrapper">
