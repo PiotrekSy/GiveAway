@@ -2,7 +2,8 @@
 html {
   overflow-x: hidden;
 
-  a, li {
+  a,
+  li {
     text-decoration: none;
   }
 
@@ -41,7 +42,6 @@ html {
     background-color: transparent;
   }
 
-
   abbr[title] {
     border-bottom: none; /* 1 */
     text-decoration: underline; /* 2 */
@@ -51,7 +51,6 @@ html {
   strong {
     font-weight: bolder;
   }
-
 
   code,
   kbd,
@@ -95,13 +94,14 @@ html {
     margin: 0; /* 2 */
   }
 
-
   button,
-  input { /* 1 */
+  input {
+    /* 1 */
     overflow: visible;
 
     button,
-    select { /* 1 */
+    select {
+      /* 1 */
       text-transform: none;
     }
 
@@ -148,25 +148,21 @@ html {
       overflow: auto;
     }
 
-
     [type="checkbox"],
     [type="radio"] {
       box-sizing: border-box; /* 1 */
       padding: 0; /* 2 */
     }
 
-
     [type="number"]::-webkit-inner-spin-button,
     [type="number"]::-webkit-outer-spin-button {
       height: auto;
     }
 
-
     [type="search"] {
       -webkit-appearance: textfield; /* 1 */
       outline-offset: -2px; /* 2 */
     }
-
 
     [type="search"]::-webkit-search-decoration {
       -webkit-appearance: none;
@@ -180,7 +176,6 @@ html {
     details {
       display: block;
     }
-
 
     summary {
       display: list-item;
@@ -201,7 +196,6 @@ html {
 $baseHeight: 100vh;
 
 .homepage {
-
   .homeHeader {
     height: $baseHeight;
     width: 100vw;
@@ -285,7 +279,6 @@ $baseHeight: 100vh;
       }
 
       .navigation {
-
         font-size: 18px;
         width: 50vw;
         top: 9%;
@@ -304,7 +297,6 @@ $baseHeight: 100vh;
           height: 60px;
 
           .navButtonWrapper {
-
             text-wrap: none;
             height: 90%;
             width: 90%;
@@ -365,7 +357,6 @@ $baseHeight: 100vh;
         }
 
         .baseButtons {
-
           position: relative;
           display: flex;
           flex-direction: row;
@@ -421,8 +412,14 @@ $baseHeight: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FAD648;
+    background-color: #fad648;
 
+    .expandLessIcon {
+      height: 100%;
+      width: 100%;
+      background: url("../../assets/expand_less_FILL0_wght400_GRAD0_opsz48.svg")
+        no-repeat center;
+    }
   }
 
   .buttonToTop:hover {
@@ -431,7 +428,8 @@ $baseHeight: 100vh;
 
   .whatsUp {
     height: 30vh;
-    background: transparent url('../../assets/3 Columns Background.png') 0 0 padding-box;
+    background: transparent url("../../assets/3 Columns Background.png") 0 0
+      padding-box;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -485,7 +483,7 @@ $baseHeight: 100vh;
     .simpleStepsItems {
       width: 100%;
       height: 40%;
-      background: var(--colour-light-grey) 0 0 no-repeat padding-box;;
+      background: var(--colour-light-grey) 0 0 no-repeat padding-box;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
@@ -695,24 +693,20 @@ $baseHeight: 100vh;
       }
     }
 
-    .listElement:nth-child(1n+2) {
+    .listElement:nth-child(1n + 2) {
       padding-top: 20px;
       border-top: 1px solid black;
-
     }
 
     .organizationsContainer {
-
       height: 30vh;
       width: 70%;
       font-size: 2rem;
       padding: 50px;
 
-
       .organizationsItems {
         display: flex;
         flex-direction: column;
-
 
         .listElement {
           display: flex;
@@ -745,7 +739,6 @@ $baseHeight: 100vh;
         }
 
         .paginationContainer {
-
           font-size: 1.3rem;
 
           .pagination {
@@ -770,7 +763,6 @@ $baseHeight: 100vh;
 
               .paginationDigit {
                 padding: 10px;
-
               }
             }
 
@@ -813,7 +805,6 @@ $baseHeight: 100vh;
       background: url("../../assets/Background-Contact-Form.jpg");
       background-size: cover;
       opacity: 0.1;
-
     }
 
     .rightSide {
@@ -846,7 +837,6 @@ $baseHeight: 100vh;
           color: #66ce66;
         }
       }
-
 
       .form {
         width: 70%;
@@ -914,7 +904,6 @@ $baseHeight: 100vh;
           outline: none;
         }
 
-
         .errorMessage {
           color: red;
           height: 50px;
@@ -931,7 +920,6 @@ $baseHeight: 100vh;
             width: 150px;
             margin-top: 40px;
             position: relative;
-
 
             .formButtonRange {
               cursor: pointer;
@@ -995,7 +983,6 @@ $baseHeight: 100vh;
           position: relative;
           justify-content: center;
           align-items: center;
-
 
           .facebookIcon {
             margin-left: 10px;
@@ -1156,7 +1143,6 @@ $baseHeight: 100vh;
       height: 25px;
       background: url("../../assets/Decoration.svg") no-repeat center;
       background-size: cover;
-
     }
 
     .greyArea {
@@ -1245,7 +1231,6 @@ $baseHeight: 100vh;
       .regInput:focus {
         outline: none;
       }
-
     }
   }
 }
@@ -1253,7 +1238,6 @@ $baseHeight: 100vh;
 //właściwy formularz do oddawania rzeczy:
 
 .formHomeHeader {
-
   height: $baseHeight;
   width: 100vw;
   display: flex;
@@ -1336,7 +1320,6 @@ $baseHeight: 100vh;
     }
 
     .navigation {
-
       font-size: 18px;
       width: 50vw;
       top: 9%;
@@ -1355,7 +1338,6 @@ $baseHeight: 100vh;
         height: 60px;
 
         .navButtonWrapper {
-
           text-wrap: none;
           height: 90%;
           width: 90%;
@@ -1433,12 +1415,10 @@ $baseHeight: 100vh;
           justify-content: space-between;
           flex-direction: column;
 
-
           .innerSquare {
             transform: rotate(-45deg);
             height: 100px;
             width: 100px;
-
 
             .squareNumbers {
               font-size: 30px;
@@ -1450,7 +1430,6 @@ $baseHeight: 100vh;
               font-size: 17px;
               text-align: center;
               margin-bottom: 0;
-
             }
           }
         }
@@ -1506,7 +1485,6 @@ $baseHeight: 100vh;
       display: flex;
       flex-direction: column;
 
-
       .radioMenuItem {
         display: flex;
         flex-direction: row;
@@ -1539,7 +1517,6 @@ $baseHeight: 100vh;
 
         .radioMenuText {
           align-self: center;
-
         }
       }
     }
@@ -1568,7 +1545,6 @@ $baseHeight: 100vh;
     }
   }
 
-
   .selectMenuLocationWrapper {
     padding: 0 0 0 150px;
     height: 56vh;
@@ -1593,7 +1569,6 @@ $baseHeight: 100vh;
 
     .groupMenuTitle {
       padding: 30px 0 35px 0;
-
     }
 
     .groupMenu {
@@ -1604,7 +1579,6 @@ $baseHeight: 100vh;
       width: 800px;
 
       .groupMenuItem {
-
         height: 100px;
         margin-right: 15px;
         display: flex;
@@ -1659,17 +1633,11 @@ $baseHeight: 100vh;
   }
 
   .addressMenuLocationWrapper {
-
-
     .leftFormSide {
-
     }
 
     .rightFormSide {
-
     }
-
-
   }
 
   .formNav {
@@ -1692,7 +1660,5 @@ $baseHeight: 100vh;
       min-width: 200px;
       margin-right: 50px;
     }
-
-
   }
 }

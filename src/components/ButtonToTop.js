@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const ButtonToTop = () => {
 
@@ -23,7 +23,7 @@ const ButtonToTop = () => {
     return (<div>
         {backToTopButton &&
             <button className="buttonToTop"
-                    onClick={scrollUp}><b> BACK TO TOP</b>
+                onClick={scrollUp}><div className="expandLessIcon"/>
             </button>}
     </div>)
 }
