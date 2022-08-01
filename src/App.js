@@ -9,7 +9,6 @@ import GiveAwayForm from "./components/GiveAwayForm";
 import {UserContext} from "./components/context/userProvider";
 import {getAuth, onAuthStateChanged} from "firebase/auth";
 
-
 function App() {
 
     const [user, setUser] = useState(null)
@@ -23,7 +22,6 @@ function App() {
                setUser(null)
             }
         });
-
         return unsubscribe
     }, [])
 
