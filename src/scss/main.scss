@@ -241,7 +241,7 @@ $baseHeight: 100vh;
             justify-content: right;
             align-items: center;
             width: auto;
-            text-wrap: none;
+
 
             .loggedUser {
               display: flex;
@@ -297,7 +297,6 @@ $baseHeight: 100vh;
           height: 60px;
 
           .navButtonWrapper {
-            text-wrap: none;
             height: 90%;
             width: 90%;
             padding-left: 2px;
@@ -1035,7 +1034,6 @@ $baseHeight: 100vh;
         justify-content: right;
         align-items: center;
         width: auto;
-        text-wrap: none;
 
         .loggedUser {
           display: flex;
@@ -1093,7 +1091,6 @@ $baseHeight: 100vh;
       height: 60px;
 
       .navButtonWrapper {
-        text-wrap: none;
         height: 90%;
         width: 90%;
         padding-left: 2px;
@@ -1282,7 +1279,6 @@ $baseHeight: 100vh;
           justify-content: right;
           align-items: center;
           width: auto;
-          text-wrap: none;
 
           .loggedUser {
             display: flex;
@@ -1338,7 +1334,6 @@ $baseHeight: 100vh;
         height: 60px;
 
         .navButtonWrapper {
-          text-wrap: none;
           height: 90%;
           width: 90%;
           padding-left: 2px;
@@ -1633,7 +1628,12 @@ $baseHeight: 100vh;
   }
 
   .addressMenuLocationWrapper {
+
+    padding: 0 0 0 150px;
+    height: 56vh;
+
     .leftFormSide {
+
     }
 
     .rightFormSide {
