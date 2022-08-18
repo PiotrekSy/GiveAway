@@ -15,15 +15,8 @@ function App() {
 
     useEffect(() => {
         const auth = getAuth();
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user)
-            } else {
-               setUser(null)
-            }
-        });
-        return unsubscribe
-    }, [])
+        return onAuthStateChanged(auth, (user) => user ? setUser(user) : null)
+    })
 
     return (
         <Router>

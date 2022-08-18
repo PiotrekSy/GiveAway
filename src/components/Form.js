@@ -208,7 +208,7 @@ const Form = () => {
                     <div className="selectMenu">
                         <p>Liczba 60l worków:</p>
                         <select className="selectMenuWindow" onChange={handleSelectChange} defaultValue="">
-                            <option value="" hidden>--wybierz--</option>
+                            <option value="" hidden>{bagsNumber === "" ? "--wybierz--" : bagsNumber}</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -361,12 +361,14 @@ const Form = () => {
                     <div className="sumIconItem">
                         <div className="clothesIcon"/>
                         {(bagsNumber !== "" && itemType !== "" && helpGroups.length > 0) &&
-                            <div>{bagsNumber} {bagsNumber === "1" ? 'worek' : (bagsNumber >= "5" ? 'worków' : "worki")},
+                            <div
+                                className="sumIconText">{bagsNumber} {bagsNumber === "1" ? 'worek' : (bagsNumber >= "5" ? 'worków' : "worki")},
                                 {itemType}, {[...helpGroups.join(", ")]}</div>}
                     </div>
                     <div className="sumIconItem">
                         <div className="roundIcon"/>
-                        <div> {localizationSpecific !== "" ? `dla lokalizacji: ${localization}` :
+                        <div
+                            className="sumIconText"> {localizationSpecific !== "" ? `dla lokalizacji: ${localization}` :
                             (localization !== "" ? `dla organizacji: ${localizationSpecific}` : null)}
                         </div>
                     </div>
