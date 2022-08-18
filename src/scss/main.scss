@@ -649,21 +649,20 @@ $baseHeight: 100vh;
     justify-content: center;
 
     .organizationsTitle {
-      font-size: 35px;
+      font-size: 2rem;
     }
 
     .organizationsButtons {
       position: relative;
       display: flex;
       flex-direction: row;
-      padding-top: 40px;
 
       .organizationButton {
         border: 1px solid white;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 10vh;
+        height: 7vh;
         width: 250px;
         margin: 50px;
 
@@ -910,7 +909,7 @@ $baseHeight: 100vh;
         .formButtonWrapper {
           width: 100%;
           display: flex;
-          justify-content: end;
+          justify-content: flex-end;
 
           .formButton {
             height: 50px;
