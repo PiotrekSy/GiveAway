@@ -37,7 +37,6 @@ const Organizations = () => {
 
     return (<div className="organizations" id="organizations">
         <span className="organizationsTitle">Komu pomagamy?</span>
-        <div className="organizationsDecoration"/>
         <div className="organizationsButtons">
             <div className="organizationButton"
                  style={{border: (type === "fundations" ? "1px solid black" : "none")}}
@@ -74,8 +73,8 @@ const Organizations = () => {
             </div>
         </div>
         <span className="organizationsDescription">Wyręczamy Cię w organizacji pomocy potrzebującym.
-            Robiąc to pro-bono i pamiętając o tym że karma wraca jesteśmy dumni ze swojej działalności.
-            Zapraszamy do współpracy i czynienia wspólnego dobra.
+            Robiąc to pro-bono i pamiętając o tym, że karma wraca, jesteśmy dumni ze swojej działalności.
+            Zapraszamy do współpracy!
             </span>
 
         <div className="organizationsContainer">

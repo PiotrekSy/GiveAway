@@ -5,6 +5,7 @@ html {
   a,
   li {
     text-decoration: none;
+    color: black;
   }
 
   list-style: none;
@@ -242,7 +243,6 @@ $baseHeight: 100vh;
             align-items: center;
             width: auto;
 
-
             .loggedUser {
               display: flex;
               flex-direction: row;
@@ -367,6 +367,7 @@ $baseHeight: 100vh;
             align-items: center;
             border: 1px solid black;
             height: 10vh;
+            padding: 1.5vh;
             width: 250px;
             margin: 40px;
 
@@ -416,7 +417,8 @@ $baseHeight: 100vh;
     .expandLessIcon {
       height: 100%;
       width: 100%;
-      background: url("../../assets/expand_less_FILL0_wght400_GRAD0_opsz48.svg") no-repeat center;
+      background: url("../../assets/expand_less_FILL0_wght400_GRAD0_opsz48.svg")
+        no-repeat center;
     }
   }
 
@@ -426,7 +428,8 @@ $baseHeight: 100vh;
 
   .whatsUp {
     height: 30vh;
-    background: transparent url("../../assets/3 Columns Background.png") 0 0 padding-box;
+    background: transparent url("../../assets/3 Columns Background.png") 0 0
+      padding-box;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -649,6 +652,7 @@ $baseHeight: 100vh;
     justify-content: center;
 
     .organizationsTitle {
+      margin-top:5vh;
       font-size: 2rem;
     }
 
@@ -662,12 +666,13 @@ $baseHeight: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 7vh;
-        width: 250px;
+        height: 10vh;
+        width: 300px;
         margin: 50px;
 
         .organizationButtonRange {
           display: flex;
+          padding: 5vh;
           text-align: center;
           align-self: center;
           justify-self: center;
@@ -1642,7 +1647,6 @@ $baseHeight: 100vh;
     height: 50vh;
     width: 1000px;
 
-
     .addressForm {
       display: flex;
       flex-direction: row;
@@ -1663,7 +1667,6 @@ $baseHeight: 100vh;
           margin: 25px 0 25px 0;
           align-items: center;
 
-
           .locationMenuInput {
             height: 50px;
             width: 280px;
@@ -1679,7 +1682,6 @@ $baseHeight: 100vh;
         width: 450px;
 
         .locationMenuHeader {
-
           margin-bottom: 50px;
         }
 
@@ -1749,7 +1751,6 @@ $baseHeight: 100vh;
       display: flex;
       flex-direction: row;
 
-
       .sumLeftFormSide {
         width: 450px;
 
@@ -1774,7 +1775,6 @@ $baseHeight: 100vh;
         }
 
         .formInputLast {
-
         }
       }
     }
@@ -1792,7 +1792,6 @@ $baseHeight: 100vh;
       text-align: center;
       font-size: 3rem;
       margin-bottom: 50px;
-
     }
 
     .decoration {
@@ -1801,7 +1800,6 @@ $baseHeight: 100vh;
       background: url("../../assets/Decoration.svg") no-repeat center;
       background-size: cover;
     }
-
   }
 
   .formNav {
