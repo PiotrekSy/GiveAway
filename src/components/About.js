@@ -7,9 +7,10 @@ const About = () => {
                 <span className="aboutTitle">O nas</span>
                 <div className="aboutDecoration" />
                 <span className="aboutDescription">
-                    Wyręczamy Cię w organizacji pomocy potrzebującym.
-                    Robiąc to pro-bono i pamiętając o tym, że karma wraca, jesteśmy dumni ze swojej działalności.
-                    Zapraszamy do współpracy!
+                    Organizujemy pomoc potrzebującym. Jesteśmy dumni, że
+                    wspólnie możemy pomóc wszystkim, którzy tego potrzebują. Razem
+                    możemy osiągnąć więcej. <br/> Dlatego zapraszamy do współpracy. Czyńmy razem
+                    dobro!
                 </span>
                 <div className="aboutSignature" />
             </div>
