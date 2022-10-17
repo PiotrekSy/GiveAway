@@ -1,16 +1,16 @@
-import {initializeApp} from "firebase/app";
-import {getFirestore} from "firebase/firestore";
-import {getAuth} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDW1esw1pbuLQfKlxXxplI5LEXrJQ4Urds",
-    authDomain: "giveaway-portfolio.firebaseapp.com",
-    projectId: "giveaway-portfolio",
-    storageBucket: "giveaway-portfolio.appspot.com",
-    messagingSenderId: "572614262774",
-    appId: "1:572614262774:web:0aa4f01362abbe2e7391d7",
-    measurementId: "G-8J24K90DFM"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID,
+    measurementId: process.env.MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
