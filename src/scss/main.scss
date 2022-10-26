@@ -11,7 +11,7 @@ html {
   list-style: none;
   text-decoration: none;
   line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  // -webkit-text-size-adjust: 100%; /* 2 */
   body {
     margin: 0;
     font-family: var(--font-base);
@@ -24,7 +24,7 @@ html {
   }
 
   h1 {
-    font-size: 18px;
+    font-size: 16px;
     margin: 0.67em 0;
   }
 
@@ -57,7 +57,7 @@ html {
   kbd,
   samp {
     font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
+    font-size: 1rem; /* 2 */
   }
 
   small {
@@ -221,7 +221,7 @@ $baseHeight: 100vh;
 
       .authSection {
         cursor: pointer;
-        font-size: 18px;
+        font-size: 16px;
         width: 50vw;
         top: 2%;
         position: absolute;
@@ -279,7 +279,7 @@ $baseHeight: 100vh;
       }
 
       .navigation {
-        font-size: 18px;
+        font-size: 15px;
         width: 50vw;
         top: 9%;
         position: absolute;
@@ -343,7 +343,7 @@ $baseHeight: 100vh;
 
         .baseText {
           width: 100%;
-          font-size: 2.4rem;
+          font-size: 2rem;
           margin-bottom: 20px;
         }
 
@@ -372,6 +372,7 @@ $baseHeight: 100vh;
             margin: 40px;
 
             .mainPageButtonRange {
+              padding: 0;
               cursor: pointer;
               display: flex;
               text-align: center;
@@ -384,15 +385,10 @@ $baseHeight: 100vh;
               .mainButtonText {
                 position: relative;
                 padding: 5px;
-                font-size: 2rem;
+                font-size: 1.5rem;
                 color: black;
                 margin: auto;
               }
-            }
-
-            .mainPageButtonRange:hover {
-              background: rgba(46, 46, 49, 0.1);
-              box-shadow: 2px 2px var(--colour-dark-grey);
             }
           }
         }
@@ -443,7 +439,7 @@ $baseHeight: 100vh;
       align-items: center;
 
       .whatsUpCounter {
-        font-size: 4rem;
+        font-size: 3rem;
         text-align: center;
       }
 
@@ -469,7 +465,7 @@ $baseHeight: 100vh;
     align-items: center;
 
     .simpleTitle {
-      font-size: 35px;
+      font-size: 2rem;
     }
 
     .simpleDecoration {
@@ -576,7 +572,7 @@ $baseHeight: 100vh;
 
           .simpleButtonText {
             position: relative;
-            font-size: 2.3rem;
+            font-size: 2rem;
             color: black;
             margin: auto;
           }
@@ -626,7 +622,7 @@ $baseHeight: 100vh;
         text-align: center;
         width: 60%;
         line-height: 2;
-        font-size: 22px;
+        font-size: 1.3rem;
       }
 
       .aboutSignature {
@@ -644,7 +640,7 @@ $baseHeight: 100vh;
   }
 
   .organizations {
-    height: $baseHeight;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -652,7 +648,6 @@ $baseHeight: 100vh;
     justify-content: center;
 
     .organizationsTitle {
-      margin-top:5vh;
       font-size: 2rem;
     }
 
@@ -682,7 +677,7 @@ $baseHeight: 100vh;
 
           .organizationButtonText {
             position: relative;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: black;
             margin: auto;
           }
@@ -700,10 +695,10 @@ $baseHeight: 100vh;
     }
 
     .organizationsContainer {
-      height: 30vh;
+      height: 40vh;
       width: 70%;
-      font-size: 2rem;
-      padding: 50px;
+      font-size: 1.4rem;
+      padding: 20px;
 
       .organizationsItems {
         display: flex;
@@ -722,8 +717,8 @@ $baseHeight: 100vh;
             flex-direction: column;
 
             .organizationName {
-              font-size: 1.4rem;
-              margin-bottom: 3%;
+              font-size: 1.2rem;
+              margin-bottom: 1%;
             }
 
             .organizationTarget {
@@ -813,7 +808,7 @@ $baseHeight: 100vh;
       background: none;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      height: 90%;
       width: 80%;
       align-items: center;
       justify-content: center;
@@ -848,8 +843,8 @@ $baseHeight: 100vh;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          margin-top: 5%;
-          margin-bottom: 5%;
+          margin-top: 1%;
+          margin-bottom: 2%;
 
           .upperInputWrapper {
             width: 48%;
@@ -864,7 +859,7 @@ $baseHeight: 100vh;
 
             .upperInput {
               line-height: 1.5;
-              margin-top: 15%;
+              margin-top: 5%;
               width: 97%;
               border: none;
               border-bottom: 1px solid rgba(73, 73, 77, 0.4);
@@ -887,7 +882,7 @@ $baseHeight: 100vh;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          margin-top: 10%;
+          margin-top: 5%;
 
           textarea {
             line-height: 1.5;
@@ -917,9 +912,8 @@ $baseHeight: 100vh;
           justify-content: flex-end;
 
           .formButton {
-            height: 50px;
+            height: 40px;
             width: 150px;
-            margin-top: 40px;
             position: relative;
 
             .formButtonRange {
@@ -1015,7 +1009,7 @@ $baseHeight: 100vh;
   align-items: center;
 
   .authSection {
-    font-size: 18px;
+    font-size: 14px;
     width: 50vw;
     top: 2%;
     position: absolute;
@@ -1075,26 +1069,26 @@ $baseHeight: 100vh;
     color: black;
     text-decoration-color: black;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 14px;
     width: 50vw;
     top: 9%;
     position: absolute;
-    right: 10%;
+    right: 22vw;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: center;
 
     .navButtons {
       display: flex;
       flex-direction: row;
-      width: auto;
+      width: auto;;
       justify-content: right;
       padding-left: 10px;
       height: 60px;
 
       .navButtonWrapper {
         height: 90%;
-        width: 90%;
+        width: 70%;
         padding-left: 2px;
         padding-right: 2px;
       }
@@ -1127,13 +1121,14 @@ $baseHeight: 100vh;
   }
 
   .regForm {
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     .regTitle {
-      font-size: 35px;
+      font-size: 1.6rem;
     }
 
     .regDecoration {
@@ -1159,7 +1154,7 @@ $baseHeight: 100vh;
 
       .regButtons {
         position: absolute;
-        bottom: 15vh;
+        bottom: 5vh;
         width: 500px;
         height: 100px;
         display: flex;
@@ -1233,7 +1228,6 @@ $baseHeight: 100vh;
     }
   }
 }
-
 //właściwy formularz do oddawania rzeczy:
 
 .formHomeHeader {
@@ -1260,7 +1254,7 @@ $baseHeight: 100vh;
 
     .authSection {
       cursor: pointer;
-      font-size: 18px;
+      font-size: 15px;
       width: 50vw;
       top: 2%;
       position: absolute;
@@ -1318,7 +1312,7 @@ $baseHeight: 100vh;
     }
 
     .navigation {
-      font-size: 18px;
+      font-size: 15px;
       width: 50vw;
       top: 9%;
       position: absolute;
@@ -1379,10 +1373,11 @@ $baseHeight: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      font-size: 0.9rem;
 
       .baseText {
         width: 100%;
-        font-size: 2.4rem;
+        font-size: 2rem;
         margin-bottom: 20px;
       }
 
@@ -1395,17 +1390,18 @@ $baseHeight: 100vh;
       }
 
       .squares {
+        font-size: 1rem;
         display: flex;
         flex-direction: row;
-        margin: 30px;
+        margin: 25px;
 
         .square {
           position: relative;
           border: 1px solid black;
-          height: 100px;
-          width: 100px;
+          height: 70px;
+          width: 70px;
           padding: 20px;
-          margin: 10px;
+          margin: 5px;
           transform: rotate(45deg);
           display: flex;
           align-items: center;
@@ -1414,17 +1410,17 @@ $baseHeight: 100vh;
 
           .innerSquare {
             transform: rotate(-45deg);
-            height: 100px;
-            width: 100px;
+            height: 70px;
+            width: 70px;
 
             .squareNumbers {
-              font-size: 30px;
+              font-size: 1.4rem;
               text-align: center;
               margin: 0;
             }
 
             .squareText {
-              font-size: 17px;
+              font-size: 14px;
               text-align: center;
               margin-bottom: 0;
             }
@@ -1441,7 +1437,7 @@ $baseHeight: 100vh;
   bottom: 0;
   background: url("../../assets/Background-Form.jpg") no-repeat bottom;
   background-size: cover;
-  font-size: 24px;
+  font-size: 16px;
 
   .orangeBelt {
     background: var(--colour-yellow);
@@ -1451,14 +1447,14 @@ $baseHeight: 100vh;
     justify-content: space-evenly;
 
     .orangeBeltTitle {
-      font-size: 2rem;
+      font-size: 1.5rem;
       padding-left: 150px;
       padding-bottom: 10px;
       padding-top: 10px;
     }
 
     .orangeBeltText {
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       padding-left: 150px;
     }
   }
@@ -1467,10 +1463,10 @@ $baseHeight: 100vh;
     color: red;
     font-size: 1rem;
     width: 40vw;
-    height: 100px;
+    height: 80px;
     position: absolute;
-    bottom: 40px;
-    left: 40vw;
+    bottom: 10vh;
+    left: 50vw;
   }
 
   .formPageCount {
@@ -1486,7 +1482,7 @@ $baseHeight: 100vh;
     justify-content: space-evenly;
 
     .radioMenuTitle {
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin-bottom: 2rem;
     }
 
@@ -1498,12 +1494,12 @@ $baseHeight: 100vh;
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 60px;
+        height: 35px;
         margin: 15px 0 15px 0;
 
         input[type="radio"] {
-          width: 60px;
-          height: 60px;
+          width: 40px;
+          height: 40px;
           -webkit-appearance: none;
           -moz-appearance: none;
           border: 1px solid black;
@@ -1537,7 +1533,7 @@ $baseHeight: 100vh;
     padding: 0 0 0 150px;
 
     .radioMenuTitle {
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin-bottom: 100px;
     }
 
@@ -1562,7 +1558,7 @@ $baseHeight: 100vh;
       height: 15vh;
 
       .locationMenuTitle {
-        font-size: 36px;
+        font-size: 1.5rem;
         margin-top: 5vh;
         margin-bottom: 10vh;
       }
@@ -1589,14 +1585,14 @@ $baseHeight: 100vh;
       width: 800px;
 
       .groupMenuItem {
-        height: 100px;
+        height: 50px;
         margin-right: 15px;
         display: flex;
         flex-direction: column;
 
         .groupInputText {
           position: relative;
-          top: -50px;
+          top: -25px;
           align-self: center;
           pointer-events: none;
           padding: 0 15px 0 15px;
@@ -1605,7 +1601,7 @@ $baseHeight: 100vh;
         input[type="checkbox"] {
           position: relative;
           width: 100%;
-          height: 100%;
+          height: 80%;
           -webkit-appearance: none;
           -moz-appearance: none;
           border: 1px solid black;
@@ -1649,12 +1645,13 @@ $baseHeight: 100vh;
 
     .addressForm {
       display: flex;
+      width: 50vw;
       flex-direction: row;
       justify-content: space-between;
-      margin-top: 5vh;
+      margin-top: 2vh;
 
       .leftFormSide {
-        width: 450px;
+        width: 45%;
 
         .locationMenuHeader {
           margin-bottom: 50px;
@@ -1668,8 +1665,8 @@ $baseHeight: 100vh;
           align-items: center;
 
           .locationMenuInput {
-            height: 50px;
-            width: 280px;
+            height: 30px;
+            width: 150px;
             background: transparent;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -1679,7 +1676,7 @@ $baseHeight: 100vh;
       }
 
       .rightFormSide {
-        width: 450px;
+        width: 45%;
 
         .locationMenuHeader {
           margin-bottom: 50px;
@@ -1693,13 +1690,13 @@ $baseHeight: 100vh;
           align-items: center;
 
           .locationMenuInput {
-            height: 50px;
-            width: 280px;
+            height: 30px;
+            width: 200px;
             background: transparent;
           }
 
           .locationMenuTextarea {
-            width: 280px;
+            width: 200px;
             height: 120px;
             background: transparent;
             resize: none;
@@ -1712,10 +1709,10 @@ $baseHeight: 100vh;
   .sumOfAllWrapper {
     padding: 100px 0 0 150px;
     height: 56vh;
-    width: 1000px;
+    width: 750px;
 
     .sumUpTitle {
-      font-size: 30px;
+      font-size: 1.5rem;
     }
 
     .sumIconItems {
@@ -1733,13 +1730,13 @@ $baseHeight: 100vh;
 
         .roundIcon {
           margin-left: -8vh;
-          height: 100px;
+          height: 70px;
           width: 200px;
           background: url("../../assets/Icon-4.svg") no-repeat center;
         }
 
         .sumIconText {
-          font-size: 1em;
+          font-size: 1rem;
           height: 100%;
           width: 70%;
         }
@@ -1747,31 +1744,33 @@ $baseHeight: 100vh;
     }
 
     .sumFormInfo {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       display: flex;
       flex-direction: row;
 
       .sumLeftFormSide {
-        width: 450px;
+        width: 40vw;
 
         .formInput {
+          font-size: 1rem;
           height: 5vh;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          width: 400px;
+          width: 350px;
         }
       }
 
       .sumRightFormSide {
-        width: 450px;
+        width: 350px;
 
         .formInput {
+          font-size: 1rem;
           height: 5vh;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          width: 400px;
+          width: 350px;
         }
 
         .formInputLast {
@@ -1804,9 +1803,9 @@ $baseHeight: 100vh;
 
   .formNav {
     position: absolute;
-    bottom: 0;
-    height: 20vh;
-    padding: 50px 0 0 150px;
+    bottom: 10vh;
+    height: 10vh;
+    padding: 0 0 0 150px;
 
     .formNavButton:hover {
       background: var(--colour-light-grey);
@@ -1818,7 +1817,7 @@ $baseHeight: 100vh;
     }
 
     .formNavButton {
-      min-height: 80px;
+      min-height: 50px;
       min-width: 200px;
       margin-right: 50px;
     }
